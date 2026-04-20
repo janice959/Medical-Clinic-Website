@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nordic Medical Clinic – Trusted Medical Care in Manila</title>
+<meta name="description" content="Nordic Medical Clinic in Malate, Manila offers general consultation, laboratory services, diagnostics, pre-employment exams and more. Book your appointment today."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --P:#4A90A4;--PD:#357a8e;--PL:#6FB3B8;--PLX:#a8d8dc;
+  --W:#FFFFFF;--BG:#F5F7F8;--BG2:#EEF2F4;
+  --BD:#D8E2E6;--T:#2E3A3F;--TM:#4A5E65;--TS:#7A9099;
+  --R:14px;--RL:20px;--RXL:28px;
+  --S1:0 2px 8px rgba(74,144,164,.07);
+  --S2:0 8px 32px rgba(74,144,164,.12);
+  --S3:0 24px 64px rgba(74,144,164,.18);
+  --TR:all .28s cubic-bezier(.4,0,.2,1);
+  --NAV:72px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;color:var(--T);background:var(--W);line-height:1.7;overflow-x:hidden}
+body.loading{opacity:0;transition:opacity .5s ease}
+body.loaded{opacity:1}
+h1,h2,h3,h4,h5{font-family:'DM Serif Display',serif;line-height:1.2;color:var(--T)}
+a{color:inherit;text-decoration:none;transition:var(--TR)}
+img{max-width:100%;display:block;object-fit:cover}
+button{cursor:pointer;font-family:'DM Sans',sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ═══ PAGE SYSTEM ═══ */
+.page{display:none;animation:pageIn .4s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ NAVIGATION ═══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--NAV);
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  transition:var(--TR);
+}
+.nav.scrolled{border-color:var(--BD);box-shadow:var(--S2)}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 28px;
+  height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-logo-mark{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--P),var(--PL));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.nav-logo-mark svg{width:20px;height:20px}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:18px;color:var(--T);white-space:nowrap}
+.nav-logo-name em{color:var(--P);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{
+  padding:8px 11px;border-radius:8px;
+  font-size:14px;font-weight:500;color:var(--TM);
+  transition:var(--TR);position:relative;white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--P);background:rgba(74,144,164,.07)}
+.nav-links a.active::after{
+  content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
+  width:16px;height:2px;border-radius:2px;background:var(--P);
+}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.btn-ghost{
+  padding:9px 18px;border-radius:9px;border:1.5px solid var(--BD);
+  font-size:14px;font-weight:600;color:var(--TM);background:transparent;
+  transition:var(--TR);white-space:nowrap;
+}
+.btn-ghost:hover{border-color:var(--P);color:var(--P);background:rgba(74,144,164,.05)}
+.btn-primary{
+  padding:9px 20px;border-radius:9px;border:none;
+  background:var(--P);color:#fff;
+  font-size:14px;font-weight:600;
+  transition:var(--TR);white-space:nowrap;display:inline-flex;align-items:center;gap:6px;
+}
+.btn-primary:hover{background:var(--PD);transform:translateY(-1px);box-shadow:0 6px 20px rgba(74,144,164,.35)}
+.btn-primary:active{transform:translateY(0)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--T);border-radius:2px;transition:var(--TR)}
+.mobile-menu{
+  display:none;position:fixed;top:var(--NAV);left:0;right:0;
+  background:#fff;border-bottom:1px solid var(--BD);
+  padding:16px 28px 24px;flex-direction:column;gap:4px;
+  box-shadow:var(--S2);z-index:999;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  padding:12px 16px;border-radius:10px;font-size:16px;font-weight:500;color:var(--TM);
+  border:none;background:none;text-align:left;
+}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--P);background:rgba(74,144,164,.07)}
+.mobile-menu .btn-primary{margin-top:8px;justify-content:center;padding:13px}
+
+/* ═══ FLOAT CALL ═══ */
+.float-call{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:58px;height:58px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--P),var(--PL));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(74,144,164,.45);
+  transition:var(--TR);animation:callPulse 2.8s infinite;
+}
+.float-call:hover{transform:scale(1.1);animation:none;box-shadow:0 8px 32px rgba(74,144,164,.55)}
+.float-call svg{width:24px;height:24px}
+@keyframes callPulse{
+  0%,100%{box-shadow:0 6px 24px rgba(74,144,164,.45)}
+  50%{box-shadow:0 6px 32px rgba(74,144,164,.65),0 0 0 10px rgba(74,144,164,.12)}
+}
+.float-tooltip{
+  position:absolute;right:70px;
+  background:var(--T);color:#fff;
+  font-size:12px;font-weight:600;padding:6px 12px;border-radius:7px;
+  white-space:nowrap;opacity:0;transition:var(--TR);pointer-events:none;
+}
+.float-call:hover .float-tooltip{opacity:1}
+
+/* ═══ SHARED COMPONENTS ═══ */
+section{padding:96px 0}
+.section-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--P);background:rgba(74,144,164,.1);
+  padding:5px 14px;border-radius:100px;margin-bottom:16px;
+}
+.section-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--P);flex-shrink:0}
+.section-title{font-size:clamp(28px,3.5vw,44px);margin-bottom:14px}
+.section-sub{font-size:17px;color:var(--TM);line-height:1.75;max-width:560px}
+.section-header{margin-bottom:60px}
+.section-header.center{text-align:center}
+.section-header.center .section-sub{margin:0 auto}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.vis{opacity:1;transform:translateY(0)}
+
+/* ═══ BUTTONS ═══ */
+.btn-lg{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 30px;border-radius:12px;font-size:16px;font-weight:600;
+  transition:var(--TR);border:none;cursor:pointer;
+}
+.btn-lg.solid{background:var(--P);color:#fff}
+.btn-lg.solid:hover{background:var(--PD);transform:translateY(-2px);box-shadow:0 10px 28px rgba(74,144,164,.35)}
+.btn-lg.outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-lg.outline:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-lg.outline-dark{background:transparent;color:var(--P);border:2px solid var(--P)}
+.btn-lg.outline-dark:hover{background:var(--P);color:#fff;transform:translateY(-2px)}
+
+/* ═══ CARDS ═══ */
+.card{
+  background:#fff;border:1px solid var(--BD);border-radius:var(--RL);
+  padding:32px;transition:var(--TR);position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--P),var(--PL));
+  opacity:0;transition:var(--TR);
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--S3);border-color:transparent}
+.card:hover::before{opacity:1}
+
+/* ═══ PAGE: HOME ═══ */
+
+/* Hero */
+.hero{
+  min-height:100vh;position:relative;
+  display:flex;align-items:center;
+  background:linear-gradient(155deg,#0d2b33 0%,#1e4d5c 45%,#2d7a8e 100%);
+  overflow:hidden;padding-top:var(--NAV);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=1800&q=80');
+  background-size:cover;background-position:center;
+  opacity:.13;
+}
+.hero-grid-overlay{
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.02) 59px,rgba(255,255,255,.02) 60px),
+                   repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.02) 59px,rgba(255,255,255,.02) 60px);
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(13,43,51,.92) 0%,rgba(74,144,164,.5) 100%)}
+.hero-content{
+  position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 28px;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.65);font-size:12px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;font-family:'DM Mono',monospace;
+  border:1px solid rgba(255,255,255,.2);border-radius:100px;
+  padding:6px 14px;margin-bottom:24px;
+}
+.hero-eyebrow span{width:7px;height:7px;border-radius:50%;background:var(--PLX);display:block;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-size:clamp(36px,4.5vw,60px);color:#fff;
+  margin-bottom:22px;line-height:1.1;
+}
+.hero h1 em{color:var(--PLX);font-style:normal;display:block}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.78);margin-bottom:40px;line-height:1.75;max-width:520px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;overflow:hidden;margin-top:48px;
+}
+.hero-stat{padding:20px 18px;background:rgba(255,255,255,.06);text-align:center}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;display:block}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
+
+.hero-right{display:flex;flex-direction:column;gap:16px}
+.hero-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;padding:22px 24px;backdrop-filter:blur(8px);
+}
+.hero-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.hero-card-icon{
+  width:42px;height:42px;border-radius:12px;
+  background:rgba(74,144,164,.3);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.hero-card-icon svg{width:20px;height:20px;color:var(--PLX)}
+.hero-card-name{font-family:'DM Serif Display',serif;font-size:16px;color:#fff}
+.hero-card-sub{font-size:12px;color:rgba(255,255,255,.55);margin-top:2px}
+.hero-card p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65}
+.hero-card-badge{
+  display:inline-block;margin-top:10px;padding:4px 10px;border-radius:6px;
+  font-size:11px;font-weight:600;background:rgba(111,179,184,.25);color:var(--PLX);
+}
+
+/* Trust bar */
+.trustbar{background:var(--P);padding:28px 0}
+.trustbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.trustbar-item{
+  display:flex;align-items:center;gap:12px;padding:0 24px;
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.trustbar-item:last-child{border:none}
+.trustbar-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trustbar-icon svg{width:20px;height:20px;color:#fff}
+.trustbar-num{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;display:block}
+.trustbar-label{font-size:12px;color:rgba(255,255,255,.75)}
+
+/* Services mini */
+.services-preview{background:var(--BG)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{
+  background:#fff;border:1px solid var(--BD);border-radius:var(--RL);
+  padding:32px 28px;transition:var(--TR);cursor:pointer;position:relative;overflow:hidden;
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:0;
+  background:linear-gradient(0deg,rgba(74,144,164,.04),transparent);
+  transition:var(--TR);
+}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--S3);border-color:rgba(74,144,164,.2)}
+.svc-card:hover::after{height:100%}
+.svc-icon{width:54px;height:54px;border-radius:14px;background:var(--BG);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:var(--TR)}
+.svc-icon svg{width:26px;height:26px;color:var(--P)}
+.svc-card:hover .svc-icon{background:rgba(74,144,164,.12)}
+.svc-card h3{font-size:18px;margin-bottom:10px}
+.svc-card p{font-size:14px;color:var(--TM);line-height:1.65}
+.svc-more{display:inline-flex;align-items:center;gap:4px;margin-top:16px;font-size:13px;font-weight:600;color:var(--P);transition:var(--TR)}
+.svc-card:hover .svc-more{gap:8px}
+
+/* Patient Journey */
+.journey{background:#fff}
+.journey-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.journey-steps::before{
+  content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;
+  background:linear-gradient(90deg,var(--P),var(--PL));z-index:0;
+}
+.journey-step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.journey-num{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,var(--P),var(--PL));
+  color:#fff;font-family:'DM Serif Display',serif;font-size:26px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;box-shadow:0 8px 24px rgba(74,144,164,.3);
+  transition:var(--TR);
+}
+.journey-step:hover .journey-num{transform:scale(1.1);box-shadow:0 12px 32px rgba(74,144,164,.45)}
+.journey-step h3{font-size:17px;margin-bottom:8px}
+.journey-step p{font-size:13px;color:var(--TM);line-height:1.6}
+.journey-step-icon{margin-bottom:12px;font-size:22px}
+
+/* Awards & Partners */
+.awards{background:var(--BG)}
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px}
+.award-card{background:#fff;border:1px solid var(--BD);border-radius:var(--RL);padding:30px 26px;display:flex;align-items:flex-start;gap:18px;transition:var(--TR)}
+.award-card:hover{transform:translateY(-4px);box-shadow:var(--S2);border-color:rgba(74,144,164,.2)}
+.award-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(74,144,164,.12),rgba(111,179,184,.18));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.award-icon svg{width:26px;height:26px;color:var(--P)}
+.award-year{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--P);margin-bottom:4px}
+.award-card h3{font-size:16px;margin-bottom:4px}
+.award-card p{font-size:13px;color:var(--TM);line-height:1.6}
+.partners-label{text-align:center;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--TS);margin-bottom:24px}
+.partners-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px}
+.partner-pill{display:flex;align-items:center;gap:8px;padding:12px 22px;background:#fff;border:1px solid var(--BD);border-radius:100px;transition:var(--TR)}
+.partner-pill:hover{border-color:var(--P);box-shadow:var(--S1)}
+.partner-pill-dot{width:8px;height:8px;border-radius:50%;background:var(--P);flex-shrink:0}
+.partner-pill span{font-size:13px;font-weight:600;color:var(--TM)}
+
+/* FAQ */
+.faq{background:#fff}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--BD);border-radius:var(--R);overflow:hidden;transition:var(--TR)}
+.faq-item.open{border-color:var(--P)}
+.faq-q{
+  width:100%;padding:20px 24px;background:none;border:none;
+  text-align:left;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;color:var(--T);cursor:pointer;
+}
+.faq-q:hover{color:var(--P)}
+.faq-chevron{width:20px;height:20px;flex-shrink:0;transition:var(--TR);color:var(--P)}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--TM);line-height:1.75}
+.faq-item.open .faq-a{max-height:300px}
+
+/* CTA Banner */
+.cta-section{
+  background:linear-gradient(120deg,var(--PD) 0%,var(--P) 50%,var(--PL) 100%);
+  padding:80px 0;text-align:center;position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:-50%;
+  background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.06) 0%,transparent 60%);
+}
+.cta-section h2{font-size:clamp(28px,3.5vw,44px);color:#fff;margin-bottom:14px;position:relative}
+.cta-section p{font-size:18px;color:rgba(255,255,255,.82);margin-bottom:36px;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* ═══ PAGE: ABOUT ═══ */
+.about-hero{
+  padding:calc(var(--NAV) + 64px) 0 64px;
+  background:linear-gradient(135deg,#0d2b33,#1e4d5c);
+  text-align:center;
+}
+.about-hero h1{color:#fff;font-size:clamp(32px,4vw,52px);margin-bottom:14px}
+.about-hero p{color:rgba(255,255,255,.75);font-size:18px;max-width:560px;margin:0 auto}
+.about-story{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img-stack{position:relative}
+.about-img-main{border-radius:var(--RXL);overflow:hidden;aspect-ratio:4/5}
+.about-img-main img{width:100%;height:100%}
+.about-img-badge{
+  position:absolute;bottom:-16px;right:-16px;
+  background:#fff;border-radius:16px;padding:18px 22px;
+  box-shadow:var(--S3);display:flex;align-items:center;gap:14px;
+}
+.about-img-badge-icon{width:48px;height:48px;border-radius:12px;background:rgba(74,144,164,.1);display:flex;align-items:center;justify-content:center}
+.about-img-badge-icon svg{width:24px;height:24px;color:var(--P)}
+.about-img-badge-num{font-family:'DM Serif Display',serif;font-size:26px;color:var(--P)}
+.about-img-badge-label{font-size:12px;color:var(--TS);margin-top:1px}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.about-value{padding:20px;background:var(--BG);border-radius:var(--R);border-left:3px solid var(--P)}
+.about-value h4{font-size:15px;margin-bottom:4px}
+.about-value p{font-size:13px;color:var(--TM);line-height:1.6}
+.team-preview{background:var(--BG)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.doctor-card{background:#fff;border:1px solid var(--BD);border-radius:var(--RL);padding:28px;transition:var(--TR);position:relative;overflow:hidden}
+.doctor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--P),var(--PL));opacity:0;transition:var(--TR)}
+.doctor-card:hover{transform:translateY(-6px);box-shadow:var(--S3);border-color:transparent}
+.doctor-card:hover::before{opacity:1}
+.doctor-card-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.doctor-initial{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--P),var(--PL));color:#fff;font-family:'DM Serif Display',serif;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doctor-spec{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--P);margin-bottom:4px}
+.doctor-info h3{font-size:19px;margin-bottom:0}
+.doctor-exp{font-size:12px;color:var(--TS);margin-top:2px}
+.doctor-bio{font-size:13px;color:var(--TM);line-height:1.7;border-top:1px solid var(--BD);padding-top:14px}
+.doctor-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.doctor-tag{padding:4px 10px;border-radius:6px;background:var(--BG);font-size:11px;font-weight:600;color:var(--TM)}
+
+/* ═══ PAGE: SERVICES ═══ */
+.services-hero{
+  padding:calc(var(--NAV) + 64px) 0 64px;
+  background:linear-gradient(135deg,#0d2b33,#1e4d5c);
+  text-align:center;
+}
+.services-hero h1{color:#fff;font-size:clamp(32px,4vw,52px);margin-bottom:14px}
+.services-hero p{color:rgba(255,255,255,.75);font-size:18px;max-width:560px;margin:0 auto}
+.services-full{background:#fff}
+.service-full-card{
+  background:var(--BG);border-radius:var(--RXL);padding:44px;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
+  margin-bottom:28px;border:1px solid var(--BD);
+  transition:var(--TR);
+}
+.service-full-card:hover{border-color:rgba(74,144,164,.25);box-shadow:var(--S2)}
+.service-full-card:nth-child(even){background:#fff}
+.service-full-icon{width:64px;height:64px;border-radius:18px;background:rgba(74,144,164,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.service-full-icon svg{width:30px;height:30px;color:var(--P)}
+.service-full-card h2{font-size:26px;margin-bottom:10px}
+.service-full-card .desc{font-size:15px;color:var(--TM);line-height:1.75;margin-bottom:16px}
+.service-for{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(74,144,164,.1);color:var(--P);
+  padding:5px 12px;border-radius:7px;font-size:13px;font-weight:600;margin-bottom:20px;
+}
+.svc-steps{display:flex;flex-direction:column;gap:12px}
+.svc-step{display:flex;align-items:flex-start;gap:14px}
+.svc-step-num{
+  width:30px;height:30px;border-radius:8px;
+  background:var(--P);color:#fff;
+  font-family:'DM Mono',monospace;font-size:13px;font-weight:500;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+}
+.svc-step-text h4{font-size:14px;font-weight:700;margin-bottom:2px}
+.svc-step-text p{font-size:13px;color:var(--TM);line-height:1.6}
+.svc-cta{
+  margin-top:28px;padding:14px 24px;border:none;border-radius:10px;
+  background:var(--P);color:#fff;font-size:14px;font-weight:700;
+  font-family:'DM Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:var(--TR);
+}
+.svc-cta:hover{background:var(--PD);transform:translateY(-1px);box-shadow:0 8px 20px rgba(74,144,164,.3)}
+
+/* ═══ PAGE: DOCTORS ═══ */
+.doctors-hero{
+  padding:calc(var(--NAV) + 64px) 0 64px;
+  background:linear-gradient(135deg,#0d2b33,#1e4d5c);
+  text-align:center;
+}
+.doctors-hero h1{color:#fff;font-size:clamp(32px,4vw,52px);margin-bottom:14px}
+.doctors-hero p{color:rgba(255,255,255,.75);font-size:18px;max-width:560px;margin:0 auto}
+.doctors-grid-full{background:#fff}
+.doctors-grid-4{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.doc-card-full{background:#fff;border:1px solid var(--BD);border-radius:var(--RL);padding:32px;transition:var(--TR);position:relative;overflow:hidden}
+.doc-card-full::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--P),var(--PL));opacity:0;transition:var(--TR)}
+.doc-card-full:hover{transform:translateY(-6px);box-shadow:var(--S3);border-color:transparent}
+.doc-card-full:hover::before{opacity:1}
+.doc-card-header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.doc-initial-lg{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--P),var(--PL));color:#fff;font-family:'DM Serif Display',serif;font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-card-spec{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--P);margin-bottom:4px;font-weight:500}
+.doc-card-name{font-size:20px;margin-bottom:0}
+.doc-card-exp{font-size:12px;color:var(--TS);margin-top:3px;display:flex;align-items:center;gap:5px}
+.doc-card-exp::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--P)}
+.doc-card-bio{font-size:13px;color:var(--TM);line-height:1.75;border-top:1px solid var(--BD);padding-top:16px}
+.doc-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.doc-tag{padding:4px 10px;border-radius:6px;background:var(--BG);font-size:11px;font-weight:600;color:var(--TM)}
+
+/* ═══ PAGE: BLOG ═══ */
+.blog-hero{
+  padding:calc(var(--NAV) + 64px) 0 64px;
+  background:linear-gradient(135deg,#0d2b33,#1e4d5c);
+  text-align:center;
+}
+.blog-hero h1{color:#fff;font-size:clamp(32px,4vw,52px);margin-bottom:14px}
+.blog-hero p{color:rgba(255,255,255,.75);font-size:18px;max-width:560px;margin:0 auto}
+.blog-grid-main{background:var(--BG)}
+.blog-grid{display:grid;grid-template-columns:2fr 1fr;gap:32px}
+.blog-main-list{display:flex;flex-direction:column;gap:24px}
+.blog-card{background:#fff;border:1px solid var(--BD);border-radius:var(--RL);overflow:hidden;transition:var(--TR);cursor:pointer}
+.blog-card:hover{box-shadow:var(--S2);transform:translateY(-3px);border-color:rgba(74,144,164,.2)}
+.blog-card-img{height:200px;overflow:hidden;background:linear-gradient(135deg,var(--BG2),var(--BG))}
+.blog-card-img img{width:100%;height:100%;transition:transform .5s ease}
+.blog-card:hover .blog-card-img img{transform:scale(1.05)}
+.blog-card-body{padding:24px}
+.blog-cat{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--P);margin-bottom:8px;font-weight:500}
+.blog-card h2{font-size:20px;margin-bottom:10px;line-height:1.3}
+.blog-card p{font-size:14px;color:var(--TM);line-height:1.7;margin-bottom:16px}
+.blog-meta{display:flex;align-items:center;gap:16px;font-size:12px;color:var(--TS);border-top:1px solid var(--BD);padding-top:14px}
+.blog-meta span{display:flex;align-items:center;gap:4px}
+.blog-sidebar{display:flex;flex-direction:column;gap:24px}
+.blog-sidebar-card{background:#fff;border:1px solid var(--BD);border-radius:var(--RL);padding:24px}
+.blog-sidebar-card h3{font-size:17px;margin-bottom:16px}
+.recent-post{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--BD)}
+.recent-post:last-child{border:none;padding-bottom:0}
+.recent-post-img{width:60px;height:60px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--BG2)}
+.recent-post-img img{width:100%;height:100%}
+.recent-post-title{font-size:13px;font-weight:600;line-height:1.4;margin-bottom:4px;color:var(--T)}
+.recent-post-date{font-size:11px;color:var(--TS)}
+.topic-tags{display:flex;flex-wrap:wrap;gap:8px}
+.topic-tag{padding:6px 12px;border-radius:8px;background:var(--BG);font-size:12px;font-weight:600;color:var(--TM);transition:var(--TR);cursor:pointer}
+.topic-tag:hover{background:rgba(74,144,164,.1);color:var(--P)}
+
+/* ═══ PAGE: CONTACT ═══ */
+.contact-hero{
+  padding:calc(var(--NAV) + 64px) 0 64px;
+  background:linear-gradient(135deg,#0d2b33,#1e4d5c);
+  text-align:center;
+}
+.contact-hero h1{color:#fff;font-size:clamp(32px,4vw,52px);margin-bottom:14px}
+.contact-hero p{color:rgba(255,255,255,.75);font-size:18px;max-width:560px;margin:0 auto}
+.contact-main{background:var(--BG)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+
+/* Booking form */
+.booking-form{
+  background:#fff;border-radius:var(--RXL);padding:40px;
+  border:1px solid var(--BD);box-shadow:var(--S2);
+}
+.booking-form h2{font-size:26px;margin-bottom:8px}
+.booking-form .sub{font-size:14px;color:var(--TM);margin-bottom:32px}
+.form-steps{display:flex;gap:0;margin-bottom:32px;border-radius:10px;overflow:hidden;border:1px solid var(--BD)}
+.form-step-btn{
+  flex:1;padding:12px;background:none;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--TS);
+  transition:var(--TR);border-right:1px solid var(--BD);
+}
+.form-step-btn:last-child{border-right:none}
+.form-step-btn.active{background:var(--P);color:#fff}
+.form-step{display:none}
+.form-step.active{display:block}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--T);margin-bottom:6px}
+.form-input,.form-select,.form-textarea{
+  width:100%;padding:13px 16px;border:1.5px solid var(--BD);border-radius:10px;
+  font-size:14px;font-family:'DM Sans',sans-serif;color:var(--T);background:#fff;
+  transition:var(--TR);outline:none;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--P);box-shadow:0 0 0 3px rgba(74,144,164,.12)}
+.form-input::placeholder{color:var(--TS)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.svc-selector{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;max-height:340px;overflow-y:auto;padding-right:2px}
+.svc-selector::-webkit-scrollbar{width:4px}
+.svc-selector::-webkit-scrollbar-track{background:var(--BG);border-radius:4px}
+.svc-selector::-webkit-scrollbar-thumb{background:var(--BD);border-radius:4px}
+.svc-cat-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--TS);padding:4px 0 6px;border-bottom:1px solid var(--BD);margin-bottom:4px}
+.svc-cat-group{display:flex;flex-direction:column;gap:6px}
+.svc-opts-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.svc-opt{
+  padding:11px 14px;border:1.5px solid var(--BD);border-radius:9px;cursor:pointer;
+  text-align:left;font-size:12px;font-weight:600;color:var(--TM);
+  transition:var(--TR);background:none;line-height:1.3;
+}
+.svc-opt:hover{border-color:var(--P);color:var(--P);background:rgba(74,144,164,.04)}
+.svc-opt.selected{border-color:var(--P);background:rgba(74,144,164,.1);color:var(--P)}
+.svc-other-wrap{margin-top:4px}
+.svc-other-input{display:none;margin-top:8px;width:100%;padding:11px 14px;border:1.5px solid var(--P);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--T);background:#fff;outline:none}
+.svc-other-input:focus{box-shadow:0 0 0 3px rgba(74,144,164,.12)}
+.date-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.date-btn{
+  padding:12px 6px;border:1.5px solid var(--BD);border-radius:10px;cursor:pointer;
+  text-align:center;background:none;transition:var(--TR);
+}
+.date-btn:hover{border-color:var(--P)}
+.date-btn.selected{border-color:var(--P);background:var(--P);color:#fff}
+.date-btn-day{font-size:10px;font-weight:600;color:inherit;display:block;opacity:.7}
+.date-btn-num{font-family:'DM Serif Display',serif;font-size:20px;color:inherit}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.time-btn{
+  padding:10px;border:1.5px solid var(--BD);border-radius:8px;cursor:pointer;
+  font-size:13px;font-weight:600;color:var(--TM);background:none;transition:var(--TR);
+}
+.time-btn:hover{border-color:var(--P);color:var(--P)}
+.time-btn.selected{border-color:var(--P);background:var(--P);color:#fff}
+.form-submit{
+  width:100%;padding:15px;background:var(--P);color:#fff;border:none;border-radius:10px;
+  font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;
+  transition:var(--TR);margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.form-submit:hover{background:var(--PD);transform:translateY(-1px);box-shadow:0 8px 24px rgba(74,144,164,.3)}
+.form-nav-btns{display:flex;gap:10px;margin-top:16px}
+.btn-next,.btn-prev{
+  flex:1;padding:13px;border-radius:10px;font-size:15px;font-weight:600;
+  font-family:'DM Sans',sans-serif;cursor:pointer;transition:var(--TR);
+}
+.btn-next{background:var(--P);color:#fff;border:none}
+.btn-next:hover{background:var(--PD)}
+.btn-prev{background:none;border:1.5px solid var(--BD);color:var(--TM)}
+.btn-prev:hover{border-color:var(--P);color:var(--P)}
+.booking-success{text-align:center;padding:40px 0;display:none}
+.booking-success .checkmark{width:72px;height:72px;border-radius:50%;background:rgba(74,144,164,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.booking-success .checkmark svg{width:36px;height:36px;color:var(--P)}
+.booking-success h3{font-size:24px;margin-bottom:10px}
+.booking-success p{font-size:14px;color:var(--TM)}
+
+.contact-info-panel{display:flex;flex-direction:column;gap:20px}
+.info-card{background:#fff;border:1px solid var(--BD);border-radius:var(--RL);padding:24px;display:flex;align-items:flex-start;gap:16px;transition:var(--TR)}
+.info-card:hover{border-color:rgba(74,144,164,.3);box-shadow:var(--S1)}
+.info-card-icon{width:48px;height:48px;border-radius:13px;background:rgba(74,144,164,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info-card-icon svg{width:22px;height:22px;color:var(--P)}
+.info-card-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--TS);font-family:'DM Mono',monospace;margin-bottom:4px}
+.info-card-val{font-size:15px;font-weight:600;color:var(--T);line-height:1.5}
+.map-wrap{border-radius:var(--RL);overflow:hidden;border:1px solid var(--BD);margin-top:4px;box-shadow:var(--S1)}
+.map-wrap iframe{display:block;width:100%;height:280px;border:none}
+.dir-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+  padding:12px 22px;background:var(--P);color:#fff;border-radius:9px;
+  font-size:14px;font-weight:600;transition:var(--TR);
+}
+.dir-btn:hover{background:var(--PD);transform:translateY(-1px)}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--T);color:rgba(255,255,255,.65);padding:48px 0 28px}
+.footer-center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,.55);max-width:360px;line-height:1.65}
+.footer-divider{width:40px;height:1px;background:rgba(255,255,255,.15)}
+.footer-info{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px}
+.footer-info-item{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,.65)}
+.footer-info-item svg{flex-shrink:0;opacity:.6}
+.footer-info-item a{color:rgba(255,255,255,.65);transition:var(--TR)}
+.footer-info-item a:hover{color:var(--PLX)}
+.footer-hours{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px}
+.footer-hours-item{font-size:12px;color:rgba(255,255,255,.45);font-family:'DM Mono',monospace;letter-spacing:.5px}
+.footer-bottom-bar{border-top:1px solid rgba(255,255,255,.08);margin-top:8px;padding-top:20px;font-size:12px;color:rgba(255,255,255,.35);text-align:center}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .hero-content{grid-template-columns:1fr;gap:40px}
+  .hero-right{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-img-stack{display:none}
+}
+@media(max-width:900px){
+  section{padding:64px 0}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid,.doctors-grid-4,.awards-grid{grid-template-columns:repeat(2,1fr)}
+  .trustbar-grid{grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.18)}
+  .trustbar-item{border:none;padding:16px 20px}
+  .journey-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+  .journey-steps::before{display:none}
+  .blog-grid{grid-template-columns:1fr}
+  .blog-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .contact-grid{grid-template-columns:1fr}
+  .service-full-card{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:640px){
+  .nav-links,.nav-right{display:none}
+  .hamburger{display:flex}
+  .services-grid,.team-grid,.doctors-grid-4,.awards-grid{grid-template-columns:1fr}
+  .journey-steps{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr;gap:1px;background:rgba(255,255,255,.12)}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .blog-sidebar{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .date-grid{grid-template-columns:repeat(3,1fr)}
+  .svc-opts-row{grid-template-columns:1fr}
+  .footer-info{flex-direction:column;align-items:center;gap:10px}
+}
+/* ═══ ARTICLE READER ═══ */
+.article-reader-grid{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start}
+.article-reader-aside{display:flex;flex-direction:column;gap:20px;position:sticky;top:calc(var(--NAV) + 20px)}
+@media(max-width:768px){
+  .article-reader-grid{grid-template-columns:1fr;gap:20px}
+  .article-reader-aside{position:static}
+}
+</style>
+</head>
+<body class="loading">
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <button class="nav-logo" onclick="navigate('home')" style="background:none;border:none;cursor:pointer">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+          <path d="M12 2a3 3 0 0 1 3 3v1h2a2 2 0 0 1 2 2v2h1a2 2 0 0 1 0 4h-1v2a2 2 0 0 1-2 2h-2v1a3 3 0 0 1-6 0v-1H7a2 2 0 0 1-2-2v-2H4a2 2 0 0 1 0-4h1V8a2 2 0 0 1 2-2h2V5a3 3 0 0 1 3-3z"/>
+        </svg>
+      </div>
+      <span class="nav-logo-name">Nordic <em>Medical</em></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#" data-page="home" onclick="navigate('home');return false">Home</a></li>
+      <li><a href="#" data-page="about" onclick="navigate('about');return false">About</a></li>
+      <li><a href="#" data-page="services" onclick="navigate('services');return false">Services</a></li>
+      <li><a href="#" data-page="doctors" onclick="navigate('doctors');return false">Doctors</a></li>
+      <li><a href="#" data-page="blog" onclick="navigate('blog');return false">Articles</a></li>
+      <li><a href="#" data-page="contact" onclick="navigate('contact');return false">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+6328562783" class="btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:inline"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+        +63 2 8562 7831
+      </a>
+      <button class="btn-primary" onclick="navigate('contact')">Book Appointment</button>
+    </div>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="navigate('home');toggleMobile();return false" data-page="home">Home</a>
+  <a href="#" onclick="navigate('about');toggleMobile();return false" data-page="about">About</a>
+  <a href="#" onclick="navigate('services');toggleMobile();return false" data-page="services">Services</a>
+  <a href="#" onclick="navigate('doctors');toggleMobile();return false" data-page="doctors">Doctors</a>
+  <a href="#" onclick="navigate('blog');toggleMobile();return false" data-page="blog">Articles</a>
+  <a href="#" onclick="navigate('contact');toggleMobile();return false" data-page="contact">Contact</a>
+  <button class="btn-primary" onclick="navigate('contact');toggleMobile()">Book Appointment</button>
+</div>
+
+<!-- FLOAT CALL -->
+<a href="tel:+6328562783" class="float-call" aria-label="Call Nordic Medical">
+  <span class="float-tooltip">+63 2 8562 7831</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+</a>
+
+<!-- ══════════════ PAGE: HOME ══════════════ -->
+<div class="page" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow"><span></span>Serving Malate, Manila Since 2010</div>
+        <h1>Trusted Medical Care in the <em>Heart of Manila</em></h1>
+        <p class="hero-sub">Fast, reliable, and professional healthcare services — from general consultations to full diagnostics — all under one roof.</p>
+        <div class="hero-actions">
+          <button class="btn-lg solid" onclick="navigate('contact')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book Appointment
+          </button>
+          <a href="tel:+6328562783" class="btn-lg outline">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+            Call Now
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-num">2,000+</span><span class="hero-stat-label">Patients Served</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">15+</span><span class="hero-stat-label">Years of Service</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">19+</span><span class="hero-stat-label">Medical Services</span></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div><div class="hero-card-name">General Consultation</div><div class="hero-card-sub">Mon–Sat · 8AM–6PM</div></div>
+          </div>
+          <p>Same-day consultations available. Walk-ins welcome at our Malate clinic.</p>
+          <span class="hero-card-badge">Available Today</span>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+            <div><div class="hero-card-name">Laboratory Services</div><div class="hero-card-sub">Results same day</div></div>
+          </div>
+          <p>Comprehensive blood work, urinalysis, and clinical laboratory tests.</p>
+          <span class="hero-card-badge">Fast Results</span>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="hero-card-name">Pre-Employment Exams</div><div class="hero-card-sub">Processed in 2–3 hrs</div></div>
+          </div>
+          <p>Complete medical exams for employment requirements, processed efficiently.</p>
+          <span class="hero-card-badge">Walk-ins Welcome</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trustbar">
+    <div class="container">
+      <div class="trustbar-grid">
+        <div class="trustbar-item">
+          <div class="trustbar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><span class="trustbar-num">2,000+</span><span class="trustbar-label">Patients Served</span></div>
+        </div>
+        <div class="trustbar-item">
+          <div class="trustbar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div><span class="trustbar-num">Trusted</span><span class="trustbar-label">By Locals & Professionals</span></div>
+        </div>
+        <div class="trustbar-item">
+          <div class="trustbar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><span class="trustbar-num">Fast</span><span class="trustbar-label">Same-Day Service</span></div>
+        </div>
+        <div class="trustbar-item">
+          <div class="trustbar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><span class="trustbar-num">Licensed</span><span class="trustbar-label">Certified Medical Team</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="services-preview">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-pill">Our Services</div>
+        <h2 class="section-title">Comprehensive Care, <br>All Under One Roof</h2>
+        <p class="section-sub">From routine check-ups to specialized diagnostics — we offer the full spectrum of outpatient medical services.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card fade-up" onclick="navigate('services')">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h3>General Consultation</h3>
+          <p>Comprehensive evaluation and treatment for common illnesses, chronic conditions, and preventive health care.</p>
+          <span class="svc-more">Learn more →</span>
+        </div>
+        <div class="svc-card fade-up" onclick="navigate('services')">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+          <h3>Laboratory Services</h3>
+          <p>Full-suite clinical lab testing including CBC, blood chemistry, urinalysis, and more — with fast turnaround.</p>
+          <span class="svc-more">Learn more →</span>
+        </div>
+        <div class="svc-card fade-up" onclick="navigate('services')">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <h3>Medical Certificates</h3>
+          <p>Official medical clearances for employment, travel, school, and legal purposes — processed same day.</p>
+          <span class="svc-more">Learn more →</span>
+        </div>
+        <div class="svc-card fade-up" onclick="navigate('services')">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M5.64 5.64a10 10 0 0 0 0 12.72"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 7.76a6 6 0 0 0 0 8.49"/></svg></div>
+          <h3>Diagnostic Services</h3>
+          <p>X-ray, ECG, and other diagnostic imaging conducted by certified technicians with precise results.</p>
+          <span class="svc-more">Learn more →</span>
+        </div>
+        <div class="svc-card fade-up" onclick="navigate('services')">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3>Pre-Employment Exams</h3>
+          <p>Complete physical exams tailored for job requirements — processed efficiently so you can start work sooner.</p>
+          <span class="svc-more">Learn more →</span>
+        </div>
+        <div class="svc-card fade-up" onclick="navigate('services')">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3>Annual Check-Ups</h3>
+          <p>Preventive health screening packages designed to catch issues early and keep you at your best health.</p>
+          <span class="svc-more">Learn more →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATIENT JOURNEY -->
+  <section class="journey">
+    <div class="container">
+      <div class="section-header center fade-up">
+        <div class="section-pill">How It Works</div>
+        <h2 class="section-title">Your Patient Journey</h2>
+        <p class="section-sub">From booking to treatment — we've made every step simple, clear, and stress-free.</p>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step fade-up">
+          <div class="journey-num">01</div>
+          <h3>Book Appointment</h3>
+          <p>Schedule online, call us, or simply walk in — we accommodate everyone promptly.</p>
+        </div>
+        <div class="journey-step fade-up">
+          <div class="journey-num">02</div>
+          <h3>Visit the Clinic</h3>
+          <p>Arrive at our clean, modern clinic in Malate and be greeted by our friendly staff.</p>
+        </div>
+        <div class="journey-step fade-up">
+          <div class="journey-num">03</div>
+          <h3>Get Examined</h3>
+          <p>Our experienced physicians conduct a thorough evaluation and order necessary tests.</p>
+        </div>
+        <div class="journey-step fade-up">
+          <div class="journey-num">04</div>
+          <h3>Receive Care</h3>
+          <p>Get your diagnosis, treatment plan, and prescription — with clear guidance on next steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS & PARTNERS -->
+  <section class="awards">
+    <div class="container">
+      <div class="section-header center fade-up">
+        <div class="section-pill">Recognition</div>
+        <h2 class="section-title">Awards &amp; Accreditations</h2>
+        <p class="section-sub">Recognized for excellence in patient care, clinical standards, and community health service.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card fade-up">
+          <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+          <div>
+            <div class="award-year">2023</div>
+            <h3>Best Outpatient Clinic</h3>
+            <p>Manila Health Excellence Awards — Recognized for outstanding service delivery in outpatient medical care across Metro Manila.</p>
+          </div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+          <div>
+            <div class="award-year">2022</div>
+            <h3>PhilHealth Accredited Facility</h3>
+            <p>Officially accredited by the Philippine Health Insurance Corporation for eligible outpatient and laboratory services.</p>
+          </div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div>
+            <div class="award-year">2021</div>
+            <h3>Top-Rated Clinic — Malate District</h3>
+            <p>Awarded by the Manila City Health Office for consistent compliance with health and safety standards for three consecutive years.</p>
+          </div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div>
+            <div class="award-year">2020</div>
+            <h3>DOH-Licensed Medical Facility</h3>
+            <p>Fully licensed and compliant with the Department of Health Philippines standards for general outpatient and diagnostic clinics.</p>
+          </div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div>
+            <div class="award-year">2019</div>
+            <h3>Employer Health Partner Award</h3>
+            <p>Recognized by the Philippine Business for Social Progress for excellence in corporate pre-employment and occupational health services.</p>
+          </div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div>
+            <div class="award-year">2018</div>
+            <h3>Community Health Champion</h3>
+            <p>Awarded by Barangay 700 Malate for significant contributions to accessible, affordable healthcare in the local community.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="partners-label">Trusted Partners &amp; Affiliations</div>
+      <div class="partners-row">
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Philippine Health Insurance Corp. (PhilHealth)</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Department of Health Philippines</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Philippine Medical Association</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Manila City Health Office</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>DOLE Occupational Health</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Philippine College of Physicians</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Intellicare HMO</span></div>
+        <div class="partner-pill"><div class="partner-pill-dot"></div><span>Maxicare HMO</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header center fade-up">
+        <div class="section-pill">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Everything you need to know before your visit to Nordic Medical Clinic.</p>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do I need an appointment to visit the clinic?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">No appointment is required — we welcome walk-in patients daily. However, booking an appointment in advance ensures you are seen at your preferred time with minimal waiting. You can book via our website, call us, or visit directly at 494 San Andres St, Malate, Manila.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What medical services does Nordic Medical Clinic offer?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">We offer a comprehensive range of outpatient medical services including: General Consultation, Laboratory Testing (CBC, blood chemistry, urinalysis), Medical Certificates, Diagnostic Services (X-ray, ECG), Pre-Employment Physical Exams, Annual Executive Check-Ups, and Pediatric Consultations.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What are your clinic operating hours?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">We are open Monday through Saturday from 8:00 AM to 6:00 PM, and on Sundays from 9:00 AM to 3:00 PM. We are open on most public holidays — please call us at +63 2 8562 7831 to confirm availability on specific holidays.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How long does it take to get laboratory results?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Most routine laboratory results are available on the same day, typically within 3–5 hours. Specialized tests may take 1–3 business days. We will notify you when your results are ready and provide a full review with one of our physicians.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do you accept PhilHealth or HMO cards?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Yes, we accept PhilHealth for eligible services. We also work with select HMO providers. Please bring your card and ID when you visit, and our front desk staff will verify your coverage prior to your consultation.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How do I prepare for laboratory tests?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">For fasting blood tests (e.g., fasting blood sugar, lipid panel), please fast for 8–12 hours before your test. Water is allowed. For urine tests, collect a mid-stream sample in a clean container. If you have specific requirements for your test, our staff will advise you at the time of booking.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="cta-section">
+    <div class="container">
+      <h2>Ready to Prioritize Your Health?</h2>
+      <p>Visit Nordic Medical Clinic — professional care in the heart of Manila.</p>
+      <div class="cta-btns">
+        <button class="btn-lg solid" style="background:#fff;color:var(--P)" onclick="navigate('contact')">Book Appointment</button>
+        <a href="tel:+6328562783" class="btn-lg outline">Call +63 2 8562 7831</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ══════════════ PAGE: ABOUT ══════════════ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-pill" style="margin:0 auto 16px;display:inline-flex">Our Story</div>
+      <h1>About Nordic Medical Clinic</h1>
+      <p>A trusted healthcare institution built on efficiency, compassion, and clinical excellence since 2010.</p>
+    </div>
+  </div>
+
+  <section class="about-story">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-stack fade-up">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=700&q=80" alt="Nordic Medical Clinic interior" loading="lazy"/>
+          </div>
+          <div class="about-img-badge">
+            <div class="about-img-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><div class="about-img-badge-num">2,000+</div><div class="about-img-badge-label">Patients Served</div></div>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="section-pill">Est. 2010</div>
+          <h2 class="section-title">Built on Trust, Driven by Care</h2>
+          <p style="color:var(--TM);font-size:16px;line-height:1.8;margin-bottom:16px">Nordic Medical Clinic was founded with a single mission: to bring fast, reliable, and genuinely caring healthcare to the people of Manila. Located at 494 San Andres Street in Malate, we've grown from a small general practice into a trusted multi-service clinic serving thousands of patients annually.</p>
+          <p style="color:var(--TM);font-size:16px;line-height:1.8;margin-bottom:28px">Inspired by the Scandinavian philosophy of clean spaces, efficiency, and patient-centered care, we designed every element of our clinic — from the physical environment to our clinical workflows — to make your healthcare experience as smooth and reassuring as possible.</p>
+          <div class="about-values">
+            <div class="about-value"><h4>Efficiency</h4><p>We respect your time. Most services are completed within hours, not days.</p></div>
+            <div class="about-value"><h4>Compassion</h4><p>Every patient is treated with dignity, patience, and genuine care.</p></div>
+            <div class="about-value"><h4>Precision</h4><p>Accurate diagnostics and evidence-based medicine at every visit.</p></div>
+            <div class="about-value"><h4>Accessibility</h4><p>Affordable rates without compromising on quality of care.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-preview" style="background:var(--BG)">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-pill">Our Doctors</div>
+        <h2 class="section-title">Meet the Medical Team</h2>
+        <p class="section-sub">Experienced, licensed, and dedicated — our physicians bring both expertise and genuine warmth to every consultation.</p>
+      </div>
+      <div class="team-grid">
+        <div class="doctor-card fade-up">
+          <div class="doctor-card-top">
+            <div class="doctor-initial">RS</div>
+            <div class="doctor-info">
+              <div class="doctor-spec">General Medicine</div>
+              <h3>Dr. Ricardo Santos</h3>
+              <div class="doctor-exp">18 Years Experience</div>
+            </div>
+          </div>
+          <p class="doctor-bio">Dr. Santos founded Nordic Medical Clinic and leads the general medicine practice. A graduate of UP Manila College of Medicine, he specializes in internal medicine and preventive care.</p>
+          <div class="doctor-tags"><span class="doctor-tag">Internal Medicine</span><span class="doctor-tag">Preventive Care</span></div>
+        </div>
+        <div class="doctor-card fade-up">
+          <div class="doctor-card-top">
+            <div class="doctor-initial" style="background:linear-gradient(135deg,#357a8e,#6FB3B8)">ME</div>
+            <div class="doctor-info">
+              <div class="doctor-spec">Diagnostics &amp; Pathology</div>
+              <h3>Dr. Maria Elena Cruz</h3>
+              <div class="doctor-exp">12 Years Experience</div>
+            </div>
+          </div>
+          <p class="doctor-bio">Dr. Cruz heads the diagnostics and laboratory division. She trained at St. Luke's Medical Center and brings exceptional precision to clinical testing and interpretation.</p>
+          <div class="doctor-tags"><span class="doctor-tag">Pathology</span><span class="doctor-tag">Lab Medicine</span></div>
+        </div>
+        <div class="doctor-card fade-up">
+          <div class="doctor-card-top">
+            <div class="doctor-initial" style="background:linear-gradient(135deg,#2d7a8e,#4A90A4)">JV</div>
+            <div class="doctor-info">
+              <div class="doctor-spec">Occupational Medicine</div>
+              <h3>Dr. James Villanueva</h3>
+              <div class="doctor-exp">9 Years Experience</div>
+            </div>
+          </div>
+          <p class="doctor-bio">Dr. Villanueva specializes in occupational and pre-employment medicine. He works closely with corporate clients to deliver efficient, compliant health examinations.</p>
+          <div class="doctor-tags"><span class="doctor-tag">Occupational Health</span><span class="doctor-tag">Corporate Wellness</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px">
+        <button class="btn-lg outline-dark" onclick="navigate('doctors')">View Full Medical Team</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <div class="container">
+      <h2>Come Visit Us in Malate, Manila</h2>
+      <p>Walk-ins welcome · Mon–Sat 8AM–6PM · Sun 9AM–3PM</p>
+      <div class="cta-btns">
+        <button class="btn-lg solid" style="background:#fff;color:var(--P)" onclick="navigate('contact')">Book Appointment</button>
+        <a href="tel:+6328562783" class="btn-lg outline">Call +63 2 8562 7831</a>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-about -->
+
+<!-- ══════════════ PAGE: SERVICES ══════════════ -->
+<div class="page" id="page-services">
+  <div class="services-hero">
+    <div class="container">
+      <div class="section-pill" style="margin:0 auto 16px;display:inline-flex">Medical Services</div>
+      <h1>Everything You Need, Here</h1>
+      <p>Comprehensive medical services — from routine consultations and diagnostics to specialized care and corporate health programs — all under one roof.</p>
+    </div>
+  </div>
+
+  <section class="services-full">
+    <div class="container">
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h2>General Consultation</h2>
+          <div class="service-for">For: All patients, all ages</div>
+          <p class="desc">Our general consultation service covers a wide range of health concerns — from acute illnesses like fever and infections to chronic disease management and preventive care. Our physicians are trained to listen, diagnose accurately, and prescribe appropriate treatments.</p>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Registration</h4><p>Check in at the front desk — walk-ins and appointments welcome.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Triage & Vitals</h4><p>Nurse records your blood pressure, temperature, weight, and chief complaint.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Physician Consultation</h4><p>A licensed physician conducts a thorough examination and assessment.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Prescription & Follow-Up</h4><p>Receive your diagnosis, prescription, and care plan.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+          <h2>Laboratory Services</h2>
+          <div class="service-for">For: Patients requiring blood or urine testing</div>
+          <p class="desc">We offer a comprehensive panel of clinical laboratory examinations including complete blood count (CBC), fasting blood sugar, lipid profile, liver and kidney function tests, urinalysis, fecalysis, and more. Results are available on the same day for most standard tests.</p>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Test Request Form</h4><p>Bring your doctor's request or request tests at our clinic directly.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Sample Collection</h4><p>Blood draw or specimen collection by our trained phlebotomist.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Processing</h4><p>Samples analyzed in our in-house laboratory within 3–5 hours.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Results & Interpretation</h4><p>Results released with physician review and explanation.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <h2>Medical Certificates</h2>
+          <div class="service-for">For: Employees, students, travelers, applicants</div>
+          <p class="desc">We issue official medical clearances and certificates for employment, school enrollment, travel, driving licenses, firearms applications, and other legal or administrative purposes. All documents are signed by a licensed physician and ready same day.</p>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Specify Purpose</h4><p>Inform our staff of the type of certificate you need.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Physical Examination</h4><p>A brief physical exam is conducted by the physician on duty.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Document Preparation</h4><p>Certificate is prepared, reviewed, and signed.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Same-Day Release</h4><p>Collect your official medical certificate — same day.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M5.64 5.64a10 10 0 0 0 0 12.72"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 7.76a6 6 0 0 0 0 8.49"/></svg></div>
+          <h2>Diagnostic Services</h2>
+          <div class="service-for">For: Patients requiring imaging or cardiac evaluation</div>
+          <p class="desc">Our diagnostic unit is equipped with digital X-ray and 12-lead ECG. All procedures are performed by certified radiologic technologists and interpreted by our physicians. We provide printed results with complete radiologist's report.</p>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Request & Registration</h4><p>Present your doctor's request or get a referral from our physician.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Preparation</h4><p>Technologist briefs you on what to expect and how to position.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Imaging / Procedure</h4><p>Quick, painless procedure conducted with modern equipment.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Results with Report</h4><p>Receive printed results and radiologist/cardiologist interpretation.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h2>Pre-Employment Medical Exam</h2>
+          <div class="service-for">For: Job applicants, OFWs, new hires</div>
+          <p class="desc">Comprehensive pre-employment physical examinations that meet DOLE standards and corporate requirements. Our package typically includes: physical exam, CBC, urinalysis, chest X-ray, medical certificate, and drug screening on request. Processed in 2–3 hours.</p>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Walk In or Book Ahead</h4><p>Bring 1 valid ID, 2 ID photos, and your employer's requirements.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Specimen Collection</h4><p>Blood draw, urine sample, and vital signs recorded.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>X-ray & Physician Exam</h4><p>Chest X-ray taken and physical examination conducted.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Package Release</h4><p>Complete results and medical certificate ready in 2–3 hours.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div style="text-align:center;padding:8px 0 36px">
+        <div style="display:inline-flex;align-items:center;gap:12px;color:var(--TS);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase">
+          <span style="display:block;width:40px;height:1px;background:var(--BD)"></span>
+          Additional Services
+          <span style="display:block;width:40px;height:1px;background:var(--BD)"></span>
+        </div>
+      </div>
+
+      <!-- ULTRASOUND -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><ellipse cx="12" cy="12" rx="10" ry="6"/><path d="M12 2v20M2 12h20"/><path d="M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
+          <h2>Ultrasound Services</h2>
+          <div class="service-for">For: All patients requiring soft tissue imaging</div>
+          <p class="desc">We offer diagnostic ultrasound for abdominal, pelvic, thyroid, and obstetric evaluations. Performed by certified sonographers using modern equipment, results are reviewed and interpreted by our radiologist on the same day. Ideal for screening, monitoring, and diagnosis.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Abdominal</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Pelvic</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Thyroid</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Obstetric</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">KUB</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Doctor's Request or Walk-In</h4><p>Bring a referral or request the scan directly at our clinic.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Preparation Check</h4><p>Staff confirms if fasting or full bladder is needed for your specific scan type.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Ultrasound Procedure</h4><p>Quick, painless scan performed by our certified sonographer.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Results with Report</h4><p>Printed results with radiologist's interpretation released same day.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRUG TEST -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12a5 5 0 0 0 8 0"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+          <h2>Drug Testing (DOLE-Compliant)</h2>
+          <div class="service-for">For: Employees, job applicants, OFWs, students</div>
+          <p class="desc">We conduct urine drug screening compliant with DOLE Department Order No. 53-03. Our drug test screens for commonly abused substances including methamphetamine (shabu), marijuana, and other controlled substances. Results are confidential and officially recognized by employers and government agencies.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">DOLE-Compliant</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Confidential</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Same-Day Results</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Registration</h4><p>Present 1 valid ID and complete the drug test request form.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Specimen Collection</h4><p>Urine sample collected under supervised chain-of-custody procedure.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Laboratory Analysis</h4><p>Sample processed using validated ELISA or RIA method in our lab.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Certified Results Released</h4><p>Official drug test certificate ready within 1–2 hours.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXECUTIVE PHYSICAL EXAM -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h2>Executive / Annual Physical Exam</h2>
+          <div class="service-for">For: Professionals, executives, annual health screening</div>
+          <p class="desc">Our comprehensive executive check-up package is designed for busy professionals who want a full picture of their health. The package includes a complete physical examination, full blood workup, urinalysis, chest X-ray, ECG, and physician interpretation — all in a single clinic visit.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Complete Blood Count</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Lipid Profile</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Blood Sugar</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Chest X-ray</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">ECG</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Urinalysis</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Book in Advance</h4><p>Schedule your APE for a morning slot — fasting of 8–10 hours required.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Specimen &amp; Vitals</h4><p>Blood draw, urine, and vital signs taken upon arrival.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Imaging &amp; ECG</h4><p>Chest X-ray and 12-lead ECG performed by our technicians.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Physician Review &amp; Report</h4><p>Full results with physician's written assessment and recommendations.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VACCINATION -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M18 2l4 4-4 4"/><path d="M14 6h8"/><path d="M6 18l-4-4 4-4"/><path d="M2 14h8"/><path d="M9 3l6 18"/></svg></div>
+          <h2>Vaccination &amp; Immunization</h2>
+          <div class="service-for">For: Adults, children, travelers, OFWs</div>
+          <p class="desc">Nordic Medical offers a range of vaccines for adults and children, including flu, hepatitis A &amp; B, pneumococcal, typhoid, tetanus, and travel vaccines. All vaccinations are administered by our licensed nurses and recorded in an official immunization card.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Flu Vaccine</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Hepatitis A &amp; B</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Pneumococcal</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Typhoid</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Tetanus</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Vaccine Consultation</h4><p>Doctor reviews your vaccination history and recommends appropriate vaccines.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Pre-Vaccination Check</h4><p>Nurse checks vitals and screens for contraindications before administering.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Vaccine Administration</h4><p>Safe, sterile injection administered by our licensed nurse.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Observation &amp; Record</h4><p>15-minute post-vaccination observation; immunization card updated.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUTRITION CONSULTATION -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg></div>
+          <h2>Nutrition &amp; Dietary Consultation</h2>
+          <div class="service-for">For: Patients with diabetes, hypertension, obesity, or weight goals</div>
+          <p class="desc">Our nutrition consultation service helps patients develop sustainable, evidence-based diet plans personalized to their health conditions and goals. Whether managing chronic disease or aiming for a healthier lifestyle, our physician-guided nutritional guidance delivers practical, actionable advice.</p>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Initial Assessment</h4><p>Doctor reviews medical history, current diet, and health goals.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Body Composition Analysis</h4><p>BMI, weight, and nutritional status evaluated.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Personalized Meal Plan</h4><p>Customized dietary recommendations suited to your condition and lifestyle.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Follow-Up Monitoring</h4><p>Progress tracked at regular intervals with plan adjustments as needed.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OB-GYN -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h2>OB-GYN Consultation</h2>
+          <div class="service-for">For: Women of all ages, prenatal patients, family planning</div>
+          <p class="desc">Our OB-GYN consultation covers women's reproductive health, prenatal care, family planning, menstrual health, and gynecological concerns. We provide a safe, private, and compassionate environment for all female health concerns — from routine Pap smears to prenatal monitoring.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Prenatal Care</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Family Planning</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Pap Smear</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Ultrasound</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Schedule Appointment</h4><p>Book in advance for OB-GYN consultations — private and confidential.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Medical History Review</h4><p>Physician reviews reproductive history, symptoms, and concerns.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Examination &amp; Tests</h4><p>Physical exam, Pap smear, or OB ultrasound as appropriate.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Plan &amp; Referral</h4><p>Treatment plan provided; specialist referral arranged if needed.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PEDIATRIC -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h2>Pediatric Consultation</h2>
+          <div class="service-for">For: Infants, children, and adolescents (0–18 years)</div>
+          <p class="desc">Our pediatric consultation service covers well-baby check-ups, sick child visits, growth and development monitoring, vaccination schedules, and pediatric illness management. Dr. Ana Reyes provides compassionate, child-friendly care in a welcoming environment that puts young patients at ease.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Well-Baby Check-Up</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Sick Child Visit</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Growth Monitoring</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Immunization</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Registration</h4><p>Register child with birth certificate or vaccination card for first visits.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Weight, Height &amp; Vitals</h4><p>Nurse takes measurements and charts growth against standard percentiles.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Pediatric Consultation</h4><p>Dr. Reyes conducts a thorough examination and addresses parent concerns.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Prescription &amp; Schedule</h4><p>Treatment or vaccine schedule given; next visit date recommended.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENT -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <h2>ENT Consultation</h2>
+          <div class="service-for">For: Patients with ear, nose, and throat concerns</div>
+          <p class="desc">Our ENT consultation service addresses a wide range of ear, nose, and throat conditions including sinusitis, tonsillitis, ear infections, hearing concerns, nasal congestion, and throat discomfort. Our physician conducts a focused clinical assessment and provides targeted treatment or referrals.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Sinusitis</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Tonsillitis</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Ear Infections</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Hearing Concerns</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Symptom History</h4><p>Physician takes a detailed history of your ear, nose, or throat symptoms.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Clinical Examination</h4><p>Focused ENT examination using otoscope, nasal speculum, and throat light.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Diagnosis</h4><p>Accurate diagnosis given with explanation of findings.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Treatment &amp; Referral</h4><p>Prescription provided; specialist referral arranged for complex cases.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POEA / OFW EXAM -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h2>POEA / OFW Medical Exam</h2>
+          <div class="service-for">For: Overseas Filipino Workers, seafarers, domestic helpers</div>
+          <p class="desc">We conduct comprehensive POEA-standard medical examinations for OFWs bound for various countries including the Middle East, Asia, Europe, and the Americas. Our OFW package covers all required tests and clearances for deployment — processed efficiently to meet your flight schedule.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">POEA-Accredited</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Middle East</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Seafarers</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Fast Processing</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Bring Requirements</h4><p>Valid passport, 2x2 photos, agency documents, and valid ID required.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Complete Lab Panel</h4><p>Blood tests, urinalysis, chest X-ray, and other required screenings conducted.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Physical Examination</h4><p>Full physician examination including vision, hearing, and fitness assessment.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Medical Clearance Released</h4><p>POEA medical certificate and complete results package ready same day.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CORPORATE HEALTH PROGRAM -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h2>Corporate Health Program</h2>
+          <div class="service-for">For: Companies, HR departments, business owners</div>
+          <p class="desc">We partner with companies to manage their employee health requirements efficiently and cost-effectively. Our corporate health program covers bulk pre-employment exams, annual physical exams, drug testing, and on-site health services — all coordinated with your HR team for seamless processing.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Bulk Processing</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">HR Coordination</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Volume Discounts</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">DOLE-Compliant</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Inquire Now →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Corporate Inquiry</h4><p>Contact us to discuss your company's health requirements and employee count.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Custom Package Design</h4><p>We tailor a health exam package to match your industry and DOLE requirements.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Scheduled Processing</h4><p>Employees are processed in batches — efficiently and with minimal downtime.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Consolidated Reporting</h4><p>HR receives organized results and clearance documents per employee.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WOUND CARE -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <h2>Wound Care &amp; Dressing</h2>
+          <div class="service-for">For: Patients with cuts, lacerations, post-surgical wounds, ulcers</div>
+          <p class="desc">Our wound care service covers wound assessment, cleaning, debridement, dressing, and minor laceration repair. We use evidence-based wound management protocols to promote healing, prevent infection, and minimize scarring. Suture removal is also available for post-operative patients.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Laceration Repair</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Wound Dressing</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Suture Removal</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Diabetic Ulcers</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Wound Assessment</h4><p>Physician evaluates wound type, depth, infection status, and healing stage.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Cleaning &amp; Debridement</h4><p>Wound cleaned with sterile solution; damaged tissue removed if necessary.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Dressing &amp; Closure</h4><p>Appropriate dressing applied or sutures placed as required.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Home Care Instructions</h4><p>Patient advised on wound care at home and scheduled for follow-up.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IV THERAPY -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><path d="M8 2h8l2 4H6L8 2z"/><path d="M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/><line x1="10" y1="11" x2="14" y2="11"/><line x1="12" y1="9" x2="12" y2="13"/></svg></div>
+          <h2>IV Therapy &amp; Hydration</h2>
+          <div class="service-for">For: Dehydrated patients, post-illness recovery, wellness</div>
+          <p class="desc">Our IV therapy service provides intravenous fluid replacement, electrolyte correction, and vitamin infusions under physician supervision. Ideal for patients recovering from fever, vomiting, diarrhea, or those seeking rapid hydration and wellness support. All IV lines are inserted by our registered nurses.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Plain NSS / D5W</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Electrolyte Replacement</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Vitamin C Drip</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Physician-Supervised</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Physician Assessment</h4><p>Doctor evaluates your condition and prescribes the appropriate IV fluid or infusion.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>IV Line Insertion</h4><p>Registered nurse inserts IV catheter safely using sterile technique.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Infusion &amp; Monitoring</h4><p>Fluid administered at prescribed rate; vitals monitored throughout.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Post-Infusion Review</h4><p>Physician reviews your condition before discharge; home care advised.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BP & DIABETES MONITORING -->
+      <div class="service-full-card fade-up">
+        <div>
+          <div class="service-full-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="30" height="30"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h2>Blood Pressure &amp; Diabetes Monitoring</h2>
+          <div class="service-for">For: Hypertensive and diabetic patients, maintenance check-ups</div>
+          <p class="desc">Regular monitoring is essential for patients managing hypertension and diabetes. Our clinic offers routine blood pressure measurement, fasting blood sugar, HbA1c testing, and physician review — helping you stay on top of your numbers and adjust your treatment plan as needed.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Blood Pressure Check</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Fasting Blood Sugar</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">HbA1c</span>
+            <span style="padding:4px 12px;background:rgba(74,144,164,.08);color:var(--P);border-radius:7px;font-size:12px;font-weight:600">Medication Review</span>
+          </div>
+          <button class="svc-cta" onclick="navigate('contact')">Book This Service →</button>
+        </div>
+        <div>
+          <div class="svc-steps">
+            <div class="svc-step"><div class="svc-step-num">1</div><div class="svc-step-text"><h4>Walk-In or Scheduled Visit</h4><p>No appointment needed for routine BP and blood sugar checks.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">2</div><div class="svc-step-text"><h4>Vital Signs &amp; Testing</h4><p>Blood pressure measured; blood glucose tested via fingerprick or venipuncture.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">3</div><div class="svc-step-text"><h4>Physician Review</h4><p>Doctor reviews your readings and current medications.</p></div></div>
+            <div class="svc-step"><div class="svc-step-num">4</div><div class="svc-step-text"><h4>Medication Adjustment</h4><p>Prescriptions updated or renewed based on current readings and labs.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <div class="container">
+      <h2>Need a Service Not Listed Here?</h2>
+      <p>Contact us and we'll guide you to the right service for your health needs.</p>
+      <div class="cta-btns">
+        <button class="btn-lg solid" style="background:#fff;color:var(--P)" onclick="navigate('contact')">Get In Touch</button>
+        <a href="tel:+6328562783" class="btn-lg outline">Call +63 2 8562 7831</a>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-services -->
+
+<!-- ══════════════ PAGE: DOCTORS ══════════════ -->
+<div class="page" id="page-doctors">
+  <div class="doctors-hero">
+    <div class="container">
+      <div class="section-pill" style="margin:0 auto 16px;display:inline-flex">Medical Team</div>
+      <h1>Meet Our Doctors</h1>
+      <p>Experienced, board-certified physicians dedicated to delivering the highest standard of patient care.</p>
+    </div>
+  </div>
+
+  <section class="doctors-grid-full">
+    <div class="container">
+      <div class="doctors-grid-4">
+        <div class="doc-card-full fade-up">
+          <div class="doc-card-header">
+            <div class="doc-initial-lg">RS</div>
+            <div>
+              <div class="doc-card-spec">General Medicine · Internal Medicine</div>
+              <h3 class="doc-card-name">Dr. Ricardo Santos, MD</h3>
+              <div class="doc-card-exp">18 Years of Clinical Experience</div>
+            </div>
+          </div>
+          <p class="doc-card-bio">Dr. Santos is the founder and medical director of Nordic Medical Clinic. A graduate of the University of the Philippines College of Medicine, he completed his residency at Philippine General Hospital. He specializes in internal medicine, hypertension management, and diabetes care. Known for his thorough consultations and patient-first approach.</p>
+          <div class="doc-card-tags"><span class="doc-tag">Internal Medicine</span><span class="doc-tag">Hypertension</span><span class="doc-tag">Diabetes</span><span class="doc-tag">Preventive Care</span></div>
+        </div>
+        <div class="doc-card-full fade-up">
+          <div class="doc-card-header">
+            <div class="doc-initial-lg" style="background:linear-gradient(135deg,#357a8e,#6FB3B8)">ME</div>
+            <div>
+              <div class="doc-card-spec">Pathology · Clinical Diagnostics</div>
+              <h3 class="doc-card-name">Dr. Maria Elena Cruz, MD</h3>
+              <div class="doc-card-exp">12 Years of Clinical Experience</div>
+            </div>
+          </div>
+          <p class="doc-card-bio">Dr. Cruz leads the laboratory and diagnostics division at Nordic Medical. She trained at St. Luke's Medical Center and has advanced certifications in clinical pathology. Her expertise ensures our laboratory results are consistently accurate and interpreted with clinical precision. She is passionate about early disease detection.</p>
+          <div class="doc-card-tags"><span class="doc-tag">Pathology</span><span class="doc-tag">Lab Medicine</span><span class="doc-tag">ECG</span><span class="doc-tag">X-ray Interpretation</span></div>
+        </div>
+        <div class="doc-card-full fade-up">
+          <div class="doc-card-header">
+            <div class="doc-initial-lg" style="background:linear-gradient(135deg,#2d7a8e,#4A90A4)">JV</div>
+            <div>
+              <div class="doc-card-spec">Occupational Medicine</div>
+              <h3 class="doc-card-name">Dr. James Villanueva, MD</h3>
+              <div class="doc-card-exp">9 Years of Clinical Experience</div>
+            </div>
+          </div>
+          <p class="doc-card-bio">Dr. Villanueva specializes in occupational and industrial medicine. He is the clinic's primary physician for pre-employment exams and corporate health programs. He holds additional certifications in workplace health and safety and frequently consults with companies on employee wellness protocols and DOLE compliance.</p>
+          <div class="doc-card-tags"><span class="doc-tag">Occupational Health</span><span class="doc-tag">Pre-Employment</span><span class="doc-tag">Corporate Wellness</span></div>
+        </div>
+        <div class="doc-card-full fade-up">
+          <div class="doc-card-header">
+            <div class="doc-initial-lg" style="background:linear-gradient(135deg,#1e4d5c,#357a8e)">AR</div>
+            <div>
+              <div class="doc-card-spec">Pediatrics · Family Medicine</div>
+              <h3 class="doc-card-name">Dr. Ana Reyes, MD</h3>
+              <div class="doc-card-exp">11 Years of Clinical Experience</div>
+            </div>
+          </div>
+          <p class="doc-card-bio">Dr. Reyes joined Nordic Medical to expand the clinic's pediatric and family medicine services. A graduate of Cebu Institute of Medicine, she is known for her warm bedside manner and ability to put young patients at ease. She manages childhood illnesses, growth monitoring, and family health planning.</p>
+          <div class="doc-card-tags"><span class="doc-tag">Pediatrics</span><span class="doc-tag">Family Medicine</span><span class="doc-tag">Immunization</span></div>
+        </div>
+        <div class="doc-card-full fade-up">
+          <div class="doc-card-header">
+            <div class="doc-initial-lg" style="background:linear-gradient(135deg,#3d6b74,#5a9aaa)">FO</div>
+            <div>
+              <div class="doc-card-spec">General Surgery · Wound Care</div>
+              <h3 class="doc-card-name">Dr. Fernando Ocampo, MD</h3>
+              <div class="doc-card-exp">14 Years of Clinical Experience</div>
+            </div>
+          </div>
+          <p class="doc-card-bio">Dr. Ocampo brings surgical expertise to Nordic Medical, providing minor surgical procedures and wound care. He trained at Makati Medical Center and has extensive experience in laceration repair, abscess drainage, and outpatient minor procedures. His calm, reassuring demeanor makes even minor procedures stress-free.</p>
+          <div class="doc-card-tags"><span class="doc-tag">Minor Surgery</span><span class="doc-tag">Wound Care</span><span class="doc-tag">Outpatient Procedures</span></div>
+        </div>
+        <div class="doc-card-full fade-up" style="border:2px dashed var(--BD);background:var(--BG)">
+          <div class="doc-card-header">
+            <div class="doc-initial-lg" style="background:var(--BD);color:var(--TS)">?</div>
+            <div>
+              <div class="doc-card-spec">Open Position</div>
+              <h3 class="doc-card-name" style="color:var(--TS)">Dermatology Consultant</h3>
+              <div class="doc-card-exp">Now Recruiting</div>
+            </div>
+          </div>
+          <p class="doc-card-bio">Nordic Medical is expanding its services to include dermatology consultations. We are actively looking for a licensed dermatologist to join our growing team on a full-time or part-time basis. Interested? Contact us.</p>
+          <div class="doc-card-tags"><span class="doc-tag">Dermatology</span><span class="doc-tag">Skin Care</span><span class="doc-tag">Cosmetic</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <div class="container">
+      <h2>Book a Consultation Today</h2>
+      <p>Our medical team is ready to see you — appointments and walk-ins both welcome.</p>
+      <div class="cta-btns">
+        <button class="btn-lg solid" style="background:#fff;color:var(--P)" onclick="navigate('contact')">Book Appointment</button>
+        <a href="tel:+6328562783" class="btn-lg outline">Call +63 2 8562 7831</a>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-doctors -->
+
+<!-- ══════════════ PAGE: BLOG ══════════════ -->
+<div class="page" id="page-blog">
+
+  <!-- ARTICLE READER (hidden by default) -->
+  <div id="articleReader" style="display:none">
+    <!-- Back bar -->
+    <div style="background:var(--P);padding:calc(var(--NAV) + 16px) 0 0">
+      <div class="container" style="padding-bottom:16px">
+        <button onclick="closeArticle()" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">
+          ← Back to Articles
+        </button>
+      </div>
+    </div>
+
+    <!-- Reader body -->
+    <div style="background:var(--BG);min-height:60vh;padding:32px 0 64px">
+      <div class="container">
+        <div class="article-reader-grid">
+
+          <!-- Main article -->
+          <article style="background:#fff;border-radius:var(--RL);overflow:hidden;border:1px solid var(--BD);min-width:0">
+            <!-- Hero image -->
+            <div id="articleImg" style="width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--BG2)">
+              <img id="articleImgEl" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:block"/>
+            </div>
+            <!-- Content -->
+            <div style="padding:clamp(20px,5vw,40px)">
+              <!-- Meta row -->
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px">
+                <span id="articleCat" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--P);font-weight:600;background:rgba(74,144,164,.1);padding:4px 10px;border-radius:6px"></span>
+                <span style="font-size:12px;color:var(--TS)" id="articleDate"></span>
+                <span style="font-size:12px;color:var(--TS)" id="articleRead"></span>
+              </div>
+              <!-- Title -->
+              <h1 id="articleTitle" style="font-size:clamp(20px,4vw,32px);margin-bottom:16px;line-height:1.25;color:var(--T)"></h1>
+              <!-- Author -->
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--BD)">
+                <div style="width:38px;height:38px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--P),var(--PL));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'DM Serif Display',serif;font-size:14px" id="articleAuthorInit"></div>
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:var(--T)" id="articleAuthor"></div>
+                  <div style="font-size:12px;color:var(--TS)">Nordic Medical Clinic</div>
+                </div>
+              </div>
+              <!-- Body -->
+              <div id="articleBody" style="font-size:15px;color:var(--TM);line-height:1.85"></div>
+              <!-- Bottom CTA -->
+              <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--BD);display:flex;gap:10px;flex-wrap:wrap">
+                <button onclick="navigate('contact')" style="flex:1;min-width:160px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;background:var(--P);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif">Book a Consultation →</button>
+                <button onclick="closeArticle()" style="flex:1;min-width:140px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;background:none;color:var(--P);border:2px solid var(--P);border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif">← More Articles</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sidebar — stacks below on mobile -->
+          <aside class="article-reader-aside">
+            <div class="blog-sidebar-card">
+              <h3 style="font-size:16px;margin-bottom:14px">All Articles</h3>
+              <div id="readerSidebarList" style="display:flex;flex-direction:column;gap:8px"></div>
+            </div>
+            <div class="blog-sidebar-card" style="background:linear-gradient(135deg,var(--P),var(--PL));border-color:transparent">
+              <h3 style="color:#fff;font-size:16px">Need Medical Advice?</h3>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);margin:8px 0 16px;line-height:1.65">Visit Nordic Medical Clinic for professional consultation with our licensed physicians.</p>
+              <button onclick="navigate('contact')" style="width:100%;padding:12px;background:#fff;color:var(--P);border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif">Book Now →</button>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG LIST -->
+  <div id="blogList">
+    <div class="blog-hero">
+      <div class="container">
+        <div class="section-pill" style="margin:0 auto 16px;display:inline-flex">Health Articles</div>
+        <h1>Nordic Health Journal</h1>
+        <p>Practical health information written by our medical team — 12 articles to help you live better and stay informed.</p>
+      </div>
+    </div>
+
+    <section class="blog-grid-main">
+      <div class="container">
+        <div class="blog-grid">
+          <div class="blog-main-list" id="blogMainList"></div>
+          <aside class="blog-sidebar fade-up">
+            <div class="blog-sidebar-card">
+              <h3>Recent Articles</h3>
+              <div id="sidebarRecent"></div>
+            </div>
+            <div class="blog-sidebar-card">
+              <h3>Topics</h3>
+              <div class="topic-tags">
+                <span class="topic-tag" onclick="filterBlog('all')">All</span>
+                <span class="topic-tag" onclick="filterBlog('Preventive Health')">Preventive Health</span>
+                <span class="topic-tag" onclick="filterBlog('Laboratory')">Laboratory</span>
+                <span class="topic-tag" onclick="filterBlog('Diabetes')">Diabetes</span>
+                <span class="topic-tag" onclick="filterBlog('Hypertension')">Hypertension</span>
+                <span class="topic-tag" onclick="filterBlog('OFW Health')">OFW Health</span>
+                <span class="topic-tag" onclick="filterBlog('Women\'s Health')">Women's Health</span>
+                <span class="topic-tag" onclick="filterBlog('Pediatrics')">Pediatrics</span>
+                <span class="topic-tag" onclick="filterBlog('Nutrition')">Nutrition</span>
+                <span class="topic-tag" onclick="filterBlog('Vaccination')">Vaccination</span>
+                <span class="topic-tag" onclick="filterBlog('Occupational')">Occupational</span>
+              </div>
+            </div>
+            <div class="blog-sidebar-card" style="background:linear-gradient(135deg,var(--P),var(--PL));border-color:transparent">
+              <h3 style="color:#fff">Book a Check-Up</h3>
+              <p style="font-size:14px;color:rgba(255,255,255,.82);margin:10px 0 18px;line-height:1.65">Don't wait until you're sick. Schedule your preventive check-up today.</p>
+              <button onclick="navigate('contact')" style="width:100%;padding:12px;background:#fff;color:var(--P);border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif">Book Now →</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div><!-- /page-blog -->
+
+<!-- ══════════════ PAGE: CONTACT ══════════════ -->
+<div class="page" id="page-contact">
+  <div class="contact-hero">
+    <div class="container">
+      <div class="section-pill" style="margin:0 auto 16px;display:inline-flex">Get In Touch</div>
+      <h1>Book Your Appointment</h1>
+      <p>Walk-ins always welcome. Or book ahead to secure your preferred time and doctor.</p>
+    </div>
+  </div>
+
+  <section class="contact-main">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- BOOKING FORM -->
+        <div class="booking-form fade-up">
+          <h2>Request an Appointment</h2>
+          <p class="sub">Complete the form below — we'll confirm within the day.</p>
+
+          <div class="form-steps">
+            <button class="form-step-btn active" id="stepBtn1" onclick="goStep(1)">1. Service</button>
+            <button class="form-step-btn" id="stepBtn2" onclick="goStep(2)">2. Date &amp; Time</button>
+            <button class="form-step-btn" id="stepBtn3" onclick="goStep(3)">3. Your Info</button>
+          </div>
+
+          <div class="form-content" id="formContent">
+            <!-- Step 1 -->
+            <div class="form-step active" id="step1">
+              <p style="font-size:13px;color:var(--TM);margin-bottom:12px;font-weight:600">Select the service you need:</p>
+              <div class="svc-selector" id="svcSelector">
+
+                <!-- General -->
+                <div class="svc-cat-group">
+                  <div class="svc-cat-label">General</div>
+                  <div class="svc-opts-row">
+                    <button class="svc-opt" onclick="selectSvc(this)">General Consultation</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Medical Certificate</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Annual / Executive Check-Up</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">BP &amp; Diabetes Monitoring</button>
+                  </div>
+                </div>
+
+                <!-- Diagnostics & Laboratory -->
+                <div class="svc-cat-group">
+                  <div class="svc-cat-label">Diagnostics &amp; Laboratory</div>
+                  <div class="svc-opts-row">
+                    <button class="svc-opt" onclick="selectSvc(this)">Laboratory Tests (CBC, Blood, Urine)</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">X-ray</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">ECG / Electrocardiogram</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Ultrasound</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Drug Test (DOLE-Compliant)</button>
+                  </div>
+                </div>
+
+                <!-- Occupational & Corporate -->
+                <div class="svc-cat-group">
+                  <div class="svc-cat-label">Occupational &amp; Corporate</div>
+                  <div class="svc-opts-row">
+                    <button class="svc-opt" onclick="selectSvc(this)">Pre-Employment Exam</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">POEA / OFW Medical Exam</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Corporate Health Program</button>
+                  </div>
+                </div>
+
+                <!-- Women's Health -->
+                <div class="svc-cat-group">
+                  <div class="svc-cat-label">Women's Health</div>
+                  <div class="svc-opts-row">
+                    <button class="svc-opt" onclick="selectSvc(this)">OB-GYN Consultation</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Prenatal Check-Up</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Pap Smear</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Family Planning Consultation</button>
+                  </div>
+                </div>
+
+                <!-- Pediatrics -->
+                <div class="svc-cat-group">
+                  <div class="svc-cat-label">Pediatrics</div>
+                  <div class="svc-opts-row">
+                    <button class="svc-opt" onclick="selectSvc(this)">Pediatric Consultation</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Well-Baby Check-Up</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Child Vaccination</button>
+                  </div>
+                </div>
+
+                <!-- Specialized -->
+                <div class="svc-cat-group">
+                  <div class="svc-cat-label">Specialized</div>
+                  <div class="svc-opts-row">
+                    <button class="svc-opt" onclick="selectSvc(this)">ENT Consultation</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Vaccination / Immunization</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Nutrition &amp; Dietary Consultation</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">Wound Care &amp; Dressing</button>
+                    <button class="svc-opt" onclick="selectSvc(this)">IV Therapy &amp; Hydration</button>
+                  </div>
+                </div>
+
+                <!-- Other -->
+                <div class="svc-cat-group svc-other-wrap">
+                  <div class="svc-cat-label">Other</div>
+                  <button class="svc-opt" onclick="selectSvcOther(this)" id="svcOtherBtn">Other / Not Listed — Describe Your Need</button>
+                  <input class="svc-other-input" id="svcOtherInput" type="text" placeholder="e.g. Follow-up consultation, Suture removal, Blood typing..."/>
+                </div>
+
+              </div>
+              <!-- Selected badge -->
+              <div id="svcSelectedBadge" style="display:none;margin-bottom:12px;padding:10px 14px;background:rgba(74,144,164,.1);border:1.5px solid var(--P);border-radius:9px;font-size:13px;font-weight:600;color:var(--P)">
+                ✓ Selected: <span id="svcSelectedLabel"></span>
+              </div>
+              <div class="form-nav-btns"><button class="btn-next" onclick="goStep(2)">Continue →</button></div>
+            </div>
+            <!-- Step 2 -->
+            <div class="form-step" id="step2">
+              <p style="font-size:13px;font-weight:600;color:var(--T);margin-bottom:10px">Select a date:</p>
+              <div class="date-grid" id="dateGrid"></div>
+              <p style="font-size:13px;font-weight:600;color:var(--T);margin-bottom:10px;margin-top:20px">Select a time:</p>
+              <div class="time-grid" id="timeGrid">
+                <button class="time-btn" onclick="selectTime(this)">8:00 AM</button>
+                <button class="time-btn" onclick="selectTime(this)">9:00 AM</button>
+                <button class="time-btn" onclick="selectTime(this)">10:00 AM</button>
+                <button class="time-btn" onclick="selectTime(this)">11:00 AM</button>
+                <button class="time-btn" onclick="selectTime(this)">1:00 PM</button>
+                <button class="time-btn" onclick="selectTime(this)">2:00 PM</button>
+                <button class="time-btn" onclick="selectTime(this)">3:00 PM</button>
+                <button class="time-btn" onclick="selectTime(this)">4:00 PM</button>
+                <button class="time-btn" onclick="selectTime(this)">5:00 PM</button>
+              </div>
+              <div class="form-nav-btns">
+                <button class="btn-prev" onclick="goStep(1)">← Back</button>
+                <button class="btn-next" onclick="goStep(3)">Continue →</button>
+              </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="form-step" id="step3">
+              <div class="form-row">
+                <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Juan"/></div>
+                <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Dela Cruz"/></div>
+              </div>
+              <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="+63 9XX XXX XXXX"/></div>
+              <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="juan@email.com"/></div>
+              <div class="form-group"><label class="form-label">Additional Notes (optional)</label><textarea class="form-textarea" placeholder="Any specific concerns or requirements..."></textarea></div>
+              <div class="form-nav-btns">
+                <button class="btn-prev" onclick="goStep(2)">← Back</button>
+                <button class="btn-next" style="flex:2" onclick="submitBooking()">Confirm Appointment</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-success" id="bookingSuccess">
+            <div class="checkmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3>Appointment Requested!</h3>
+            <p>Thank you! Our team will call you within a few hours to confirm your appointment at Nordic Medical Clinic.</p>
+            <p style="margin-top:8px;font-weight:600;color:var(--P)">+63 2 8562 7831</p>
+          </div>
+        </div>
+
+        <!-- INFO PANEL -->
+        <div class="contact-info-panel fade-up">
+          <div class="info-card">
+            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="info-card-label">Address</div><div class="info-card-val">494 San Andres St, Malate<br>Manila, Metro Manila, Philippines</div></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg></div>
+            <div><div class="info-card-label">Phone</div><div class="info-card-val"><a href="tel:+6328562783" style="color:var(--P)">+63 2 8562 7831</a></div></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <div class="info-card-label">Operating Hours</div>
+              <div class="info-card-val">Mon – Sat: 8:00 AM – 6:00 PM<br>Sunday: 9:00 AM – 3:00 PM</div>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d965.4!2d120.994!3d14.5647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9889e3b9e87%3A0x8a03b78f4d21b6a2!2s494%20San%20Andres%20St%2C%20Malate%2C%20Manila!5e0!3m2!1sen!2sph!4v1" loading="lazy" title="Nordic Medical Clinic map" allowfullscreen></iframe>
+            <a href="https://maps.google.com/?q=494+San+Andres+St+Malate+Manila" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:var(--BG);font-size:14px;font-weight:600;color:var(--P);transition:var(--TR)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Open in Google Maps
+            </a>
+          </div>
+          <a href="https://maps.google.com/?q=494+San+Andres+St+Malate+Manila" target="_blank" class="dir-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-center">
+
+      <!-- Logo & Name -->
+      <div class="footer-logo">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" width="20" height="20"><path d="M12 2a3 3 0 0 1 3 3v1h2a2 2 0 0 1 2 2v2h1a2 2 0 0 1 0 4h-1v2a2 2 0 0 1-2 2h-2v1a3 3 0 0 1-6 0v-1H7a2 2 0 0 1-2-2v-2H4a2 2 0 0 1 0-4h1V8a2 2 0 0 1 2-2h2V5a3 3 0 0 1 3-3z"/></svg>
+        </div>
+        <span class="nav-logo-name" style="color:#fff">Nordic <em style="color:var(--PLX)">Medical</em></span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="footer-tagline">Trusted medical care in the heart of Manila — fast, reliable, and patient-first, every visit.</p>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contact Info Row -->
+      <div class="footer-info">
+        <div class="footer-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          494 San Andres St, Malate, Manila
+        </div>
+        <div class="footer-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          <a href="tel:+6328562783">+63 2 8562 7831</a>
+        </div>
+      </div>
+
+      <!-- Operating Hours -->
+      <div class="footer-hours">
+        <span class="footer-hours-item">Mon – Sat: 8:00 AM – 6:00 PM</span>
+        <span class="footer-hours-item">·</span>
+        <span class="footer-hours-item">Sunday: 9:00 AM – 3:00 PM</span>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom-bar">
+      © 2025 Nordic Medical Clinic · All rights reserved · Malate, Manila, Philippines
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── INIT ───
+window.addEventListener('load',()=>{
+  document.body.classList.remove('loading');
+  document.body.classList.add('loaded');
+  navigate('home');
+  buildDates();
+  initScrollAnim();
+  initNav();
+});
+
+// ─── NAVIGATION ───
+function navigate(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target=document.getElementById('page-'+page);
+  if(target){target.classList.add('active')}
+  document.querySelectorAll('[data-page]').forEach(a=>{
+    a.classList.toggle('active',a.dataset.page===page);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(page==='blog'){
+    // Reset to list view and re-render
+    const bl=document.getElementById('blogList');
+    const ar=document.getElementById('articleReader');
+    if(bl) bl.style.display='block';
+    if(ar) ar.style.display='none';
+    setTimeout(()=>renderBlog(activeFilter||'all'),50);
+  }
+  setTimeout(initScrollAnim,100);
+}
+
+function toggleMobile(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ─── STICKY NAV ───
+function initNav(){
+  window.addEventListener('scroll',()=>{
+    document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
+  });
+}
+
+// ─── SCROLL ANIMATIONS ───
+function initScrollAnim(){
+  const els=document.querySelectorAll('.page.active .fade-up');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('vis'),i*70);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  els.forEach(el=>{el.classList.remove('vis');obs.observe(el)});
+}
+
+// ─── FAQ ───
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+// ─── BOOKING FORM ───
+let currentStep=1;
+function goStep(n){
+  document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.form-step-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  document.getElementById('stepBtn'+n).classList.add('active');
+  currentStep=n;
+}
+function selectSvc(btn){
+  document.querySelectorAll('.svc-opt').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  // Hide other input if a regular service was picked
+  document.getElementById('svcOtherInput').style.display='none';
+  document.getElementById('svcOtherBtn').classList.remove('selected');
+  btn.classList.add('selected');
+  // Show selected badge
+  const badge=document.getElementById('svcSelectedBadge');
+  const label=document.getElementById('svcSelectedLabel');
+  if(badge&&label){badge.style.display='block';label.textContent=btn.textContent.trim()}
+}
+function selectSvcOther(btn){
+  document.querySelectorAll('.svc-opt').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const inp=document.getElementById('svcOtherInput');
+  inp.style.display='block';
+  inp.focus();
+  const badge=document.getElementById('svcSelectedBadge');
+  const label=document.getElementById('svcSelectedLabel');
+  inp.addEventListener('input',()=>{
+    if(badge&&label&&inp.value.trim()){badge.style.display='block';label.textContent=inp.value.trim()}
+  },{passive:true});
+}
+function selectTime(btn){
+  document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function buildDates(){
+  const grid=document.getElementById('dateGrid');
+  if(!grid)return;
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const now=new Date();
+  for(let i=1;i<=8;i++){
+    const d=new Date(now);d.setDate(now.getDate()+i);
+    const btn=document.createElement('button');
+    btn.className='date-btn';
+    btn.innerHTML=`<span class="date-btn-day">${days[d.getDay()]}</span><span class="date-btn-num">${d.getDate()}</span>`;
+    btn.onclick=function(){document.querySelectorAll('.date-btn').forEach(b=>b.classList.remove('selected'));this.classList.add('selected')};
+    grid.appendChild(btn);
+  }
+}
+function submitBooking(){
+  const fc=document.getElementById('formContent');
+  const bs=document.getElementById('bookingSuccess');
+  fc.style.display='none';
+  bs.style.display='block';
+  document.querySelector('.form-steps').style.display='none';
+}
+
+// ─── ARTICLES DATA ───
+const articles = [
+  {
+    id:1, cat:'Medical Exams', date:'April 2, 2025', read:'5 min read',
+    author:'Dr. Ricardo Santos', init:'RS',
+    img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    title:'What to Expect During a Comprehensive Medical Exam',
+    excerpt:'A comprehensive medical exam can feel daunting if you don\'t know what to expect. Here\'s a step-by-step guide to what happens during a complete physical examination at our clinic.',
+    body:`<p>A comprehensive medical exam can feel daunting — especially if it\'s your first time or you haven\'t visited a clinic in years. At Nordic Medical Clinic, we believe informed patients are empowered patients. This guide walks you through exactly what to expect during a complete physical examination, from the moment you walk in to when you receive your results.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Step 1: Registration and Intake</h3>
+    <p>Upon arrival, our front desk staff will ask you to fill out a patient intake form. This covers your personal details, chief complaint or reason for visit, current medications, known allergies, and medical history. First-time patients will be assigned a patient number for our records system. This step usually takes 5–10 minutes.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Step 2: Vital Signs Measurement</h3>
+    <p>A trained nurse will take your vital signs — blood pressure, heart rate, respiratory rate, temperature, height, and weight. These baseline measurements are essential for assessing your overall health and detecting any immediate concerns. Abnormal readings will be flagged for the physician.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Step 3: Physician Consultation</h3>
+    <p>You will be called into the consultation room where a licensed physician will conduct your physical examination. This typically includes a head-to-toe assessment: examining your eyes, ears, throat, lymph nodes, heart, lungs, abdomen, and extremities. The doctor will ask about your symptoms, lifestyle habits, family history, and health goals.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Step 4: Laboratory and Diagnostic Tests</h3>
+    <p>Depending on your age, risk factors, and the type of exam, the physician may order additional tests such as blood work, urinalysis, chest X-ray, or ECG. For a standard annual physical, expect a complete blood count (CBC), fasting blood sugar, lipid profile, and urinalysis at minimum.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Step 5: Results and Recommendations</h3>
+    <p>Most laboratory results at Nordic Medical are released on the same day. The physician will review your results with you, explain any abnormal findings, and provide a written prescription or referral if needed. You will also receive personalized health advice and recommendations for follow-up visits or lifestyle changes.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Tip from Dr. Santos</strong>
+      <p style="margin:0;font-size:14px">Always bring a list of your current medications and supplements to your appointment. This helps your doctor make accurate assessments and avoid drug interactions in any prescriptions.</p>
+    </div>`
+  },
+  {
+    id:2, cat:'Preventive Health', date:'March 18, 2025', read:'6 min read',
+    author:'Dr. Ana Reyes', init:'AR',
+    img:'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80',
+    title:'Why Regular Check-Ups Matter More Than You Think',
+    excerpt:'Many Filipinos only visit a doctor when they feel sick — but preventive health screenings can detect serious conditions before symptoms appear.',
+    body:`<p>In the Philippines, many people follow a simple rule: if it doesn\'t hurt, don\'t fix it. But this approach to health can be dangerous. Many of the most serious conditions — hypertension, diabetes, cancer, kidney disease — develop silently for years before producing noticeable symptoms. By the time you feel something, the disease may already be in an advanced stage.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">The Silent Disease Problem</h3>
+    <p>Hypertension (high blood pressure) is called the "silent killer" for good reason — it produces no symptoms until it causes a stroke or heart attack. According to the Philippine Heart Association, nearly 1 in 4 Filipino adults has hypertension, and many don\'t know it. The same is true for Type 2 diabetes, which can cause irreversible organ damage for years before diagnosis.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">What Regular Check-Ups Can Detect Early</h3>
+    <p>An annual physical examination combined with basic laboratory tests can screen for: high blood pressure, elevated blood sugar (pre-diabetes and diabetes), abnormal cholesterol levels, kidney dysfunction, liver disease, anemia, thyroid disorders, and certain infections. Early detection means earlier — and more effective — treatment.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">How Often Should You Get Checked?</h3>
+    <p>General guidelines for adults: Ages 18–39 with no known conditions — every 1–2 years. Ages 40–64 — annually. Ages 65 and above — at least once a year, more if managing chronic disease. Those with diabetes, hypertension, or heart disease should see a physician every 3–6 months.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Prevention Saves Money</h3>
+    <p>A routine annual check-up at Nordic Medical Clinic costs significantly less than treating a stroke, managing end-stage kidney disease, or undergoing cardiac surgery. Preventive healthcare is one of the most cost-effective investments you can make for your future.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Dr. Reyes Recommends</strong>
+      <p style="margin:0;font-size:14px">Schedule your annual check-up at the start of each year — treat it like a mandatory appointment with yourself. Your future self will thank you.</p>
+    </div>`
+  },
+  {
+    id:3, cat:'Laboratory', date:'March 5, 2025', read:'4 min read',
+    author:'Dr. Maria Elena Cruz', init:'ME',
+    img:'https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=800&q=80',
+    title:'How to Prepare for Common Laboratory Tests',
+    excerpt:'Proper preparation before a laboratory test significantly affects the accuracy of your results. Here\'s everything you need to know before your next lab visit.',
+    body:`<p>Getting accurate laboratory results starts before you ever arrive at the clinic. Improper preparation — eating when you should be fasting, being dehydrated, or taking certain medications — can significantly alter your test results and lead to misdiagnosis or unnecessary follow-up testing.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Fasting Blood Tests</h3>
+    <p>For tests like fasting blood sugar (FBS), lipid profile (cholesterol), and liver function tests, you must fast for 8–12 hours before the test. Water is always allowed and encouraged — staying hydrated actually makes blood drawing easier. Avoid coffee, juice, and any food. Schedule your test in the morning so fasting overnight is more comfortable.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Urinalysis Preparation</h3>
+    <p>For a urinalysis, collect a mid-stream urine sample — meaning you urinate a little first, then collect the middle portion into the container. This reduces contamination. The sample should be fresh (within 2 hours) and collected in a clean, sealed container. Women should avoid giving a urine sample during menstruation if possible.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Complete Blood Count (CBC)</h3>
+    <p>A CBC generally does not require fasting. However, avoid strenuous exercise for 24 hours before the test, as intense physical activity can temporarily elevate white blood cell counts. Stay well-hydrated and inform the nurse of any medications you are taking.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Medications and Supplements</h3>
+    <p>Always inform your physician and the laboratory staff of all medications, vitamins, and supplements you are taking. Some medications — including biotin (Vitamin B7), aspirin, anticoagulants, and steroids — can significantly affect lab results. Your doctor may advise temporarily stopping certain medications before the test.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">From Dr. Cruz\'s Lab</strong>
+      <p style="margin:0;font-size:14px">When in doubt, call us before your test. Our laboratory staff will give you specific preparation instructions based on exactly which tests have been ordered for you.</p>
+    </div>`
+  },
+  {
+    id:4, cat:'Occupational', date:'February 20, 2025', read:'7 min read',
+    author:'Dr. James Villanueva', init:'JV',
+    img:'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&q=80',
+    title:'Pre-Employment Medical Exams: A Complete Employer\'s Guide',
+    excerpt:'What does a PEME cover, what are the DOLE requirements, and how can your company process employees efficiently? Dr. Villanueva explains everything.',
+    body:`<p>Every year, thousands of companies in the Philippines require new hires to undergo a Pre-Employment Medical Examination (PEME) before officially starting work. Yet many HR officers and applicants remain unclear about what the exam covers, what documents are required, and how to ensure the process runs smoothly.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">What Does a Standard PEME Include?</h3>
+    <p>A standard pre-employment medical exam at Nordic Medical includes: complete physical examination by a licensed physician, complete blood count (CBC), urinalysis, fecalysis (for food handlers), chest X-ray (PA view), and a medical certificate signed by the examining physician. Additional tests such as drug screening, hepatitis B testing, or psychological evaluation may be added depending on the employer's requirements.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">DOLE Requirements</h3>
+    <p>Under DOLE Department Order No. 53-03, employers in certain industries are required to conduct pre-employment and annual physical examinations for their workers. The law also mandates that results be kept confidential and that no applicant be discriminated against solely based on medical findings unrelated to the job requirements.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">What Applicants Should Bring</h3>
+    <p>Applicants should bring: 1 valid government-issued ID, 2 pieces of 1x1 or 2x2 ID photos, a job offer letter or company referral form (if required), and any previous medical records relevant to the examination. They should also fast for 8 hours if blood sugar or lipid tests are included.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Processing Time</h3>
+    <p>At Nordic Medical Clinic, a standard PEME package is typically completed within 2–3 hours. Results including the medical certificate are released on the same day, allowing applicants to submit requirements promptly and start work without delay.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Corporate Accounts Available</strong>
+      <p style="margin:0;font-size:14px">Nordic Medical offers corporate health programs for companies with regular hiring needs. Contact us to discuss volume rates, dedicated scheduling slots, and consolidated result reporting for your HR team.</p>
+    </div>`
+  },
+  {
+    id:5, cat:'Diabetes', date:'February 5, 2025', read:'6 min read',
+    author:'Dr. Ricardo Santos', init:'RS',
+    img:'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80',
+    title:'Managing Diabetes: Practical Tips for Filipino Patients',
+    excerpt:'Diabetes is one of the most common conditions we see at Nordic Medical. Here\'s what you need to know about managing it effectively in everyday life.',
+    body:`<p>Diabetes mellitus is one of the fastest-growing health conditions in the Philippines. According to the International Diabetes Federation, over 4 million Filipinos live with diabetes — and millions more are pre-diabetic without knowing it. The good news: with proper management, people with diabetes can live full, healthy lives.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Understanding Your Blood Sugar Numbers</h3>
+    <p>The key numbers every diabetic patient must know: Fasting blood sugar (FBS) — normal is below 100 mg/dL; pre-diabetes is 100–125 mg/dL; diabetes is 126 mg/dL or above. HbA1c — this measures your average blood sugar over 3 months. A target of below 7% is recommended for most diabetics. Random blood sugar above 200 mg/dL with symptoms also indicates diabetes.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">The Filipino Diet and Diabetes</h3>
+    <p>Filipino food culture — rich in white rice, sugary drinks, and fried foods — can make diabetes management challenging. Practical adjustments include: switching from white rice to brown rice or reducing portion size, replacing sweetened beverages with water or unsweetened beverages, increasing vegetables and lean protein, and limiting processed and fast food. Small, consistent changes are more sustainable than drastic diets.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Exercise and Physical Activity</h3>
+    <p>Regular physical activity is one of the most effective tools for controlling blood sugar. Aim for at least 150 minutes of moderate-intensity exercise per week — this can be brisk walking, swimming, or cycling. Even 30 minutes of walking after meals significantly lowers post-meal blood sugar levels.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Medication Adherence</h3>
+    <p>Taking your diabetes medication consistently, at the right time and dose, is critical. Never skip doses or adjust your medication without consulting your physician. Common medications like metformin work best when taken with meals. If you experience side effects, speak to your doctor — there are many alternatives available.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Regular Monitoring at the Clinic</h3>
+    <p>Diabetic patients should visit their physician every 3 months for blood sugar monitoring, medication review, and assessment for complications affecting the eyes, kidneys, and feet. Nordic Medical offers convenient follow-up consultation packages for patients managing chronic conditions.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Dr. Santos Advises</strong>
+      <p style="margin:0;font-size:14px">Never self-medicate for diabetes. Blood sugar targets vary by individual. Work closely with your physician to find the right medication, dose, and lifestyle plan for you.</p>
+    </div>`
+  },
+  {
+    id:6, cat:'Hypertension', date:'January 22, 2025', read:'5 min read',
+    author:'Dr. Ricardo Santos', init:'RS',
+    img:'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80',
+    title:'Understanding Hypertension: The Silent Killer Explained',
+    excerpt:'High blood pressure affects millions of Filipinos silently. Learn what it is, why it matters, and how to keep your numbers in check.',
+    body:`<p>Hypertension — or high blood pressure — is often called the "silent killer" because it typically causes no symptoms until it has already caused significant damage to the heart, brain, kidneys, or eyes. In the Philippines, it is the leading risk factor for cardiovascular disease, the number one cause of death.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">What Is a Normal Blood Pressure?</h3>
+    <p>Blood pressure is measured in two numbers: systolic (the pressure when your heart beats) over diastolic (the pressure between beats). Normal: below 120/80 mmHg. Elevated: 120–129 systolic. Stage 1 Hypertension: 130–139/80–89 mmHg. Stage 2 Hypertension: 140/90 mmHg or higher. Hypertensive Crisis: above 180/120 mmHg — seek emergency care immediately.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Risk Factors in the Filipino Population</h3>
+    <p>Several factors increase the risk of hypertension among Filipinos: a diet high in salt (patis, soy sauce, instant noodles, processed meats), sedentary lifestyle, obesity, smoking, excessive alcohol consumption, family history, and age. Stress — particularly from work and financial pressures — also plays a significant role.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Lifestyle Changes That Lower Blood Pressure</h3>
+    <p>The DASH diet (Dietary Approaches to Stop Hypertension) emphasizes fruits, vegetables, whole grains, and low-fat dairy while reducing sodium. Reducing sodium intake to below 2,300 mg per day (about 1 teaspoon of salt) can lower systolic blood pressure by 5–6 mmHg. Regular aerobic exercise, quitting smoking, and limiting alcohol are equally powerful interventions.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">When Medication Is Needed</h3>
+    <p>For Stage 2 hypertension or when lifestyle changes alone are insufficient, antihypertensive medications are prescribed. Common classes include ACE inhibitors, ARBs, calcium channel blockers, and diuretics. It is critical to take these medications daily — even when you feel fine — as stopping abruptly can trigger dangerous blood pressure spikes.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Free Blood Pressure Check</strong>
+      <p style="margin:0;font-size:14px">Nordic Medical offers walk-in blood pressure monitoring — no appointment needed. Know your numbers today before it\'s too late.</p>
+    </div>`
+  },
+  {
+    id:7, cat:'OFW Health', date:'January 10, 2025', read:'7 min read',
+    author:'Dr. James Villanueva', init:'JV',
+    img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80',
+    title:'Complete OFW Medical Exam Guide: What You Need Before Deployment',
+    excerpt:'Heading abroad for work? Here\'s everything you need to know about POEA medical requirements, what tests are included, and how to prepare.',
+    body:`<p>For Overseas Filipino Workers (OFWs), a medical examination is one of the most critical steps before deployment. Whether you\'re heading to the Middle East, Asia, Europe, or the Americas, your destination country and your recruitment agency will have specific medical requirements you must fulfill. This guide walks you through everything you need to know.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Why the OFW Medical Exam Is Required</h3>
+    <p>The POEA (Philippine Overseas Employment Administration) requires medical clearance to ensure that OFWs are physically and medically fit for their intended work abroad. Many destination countries — particularly Gulf countries — have strict health requirements, especially regarding communicable diseases like tuberculosis, hepatitis B, and HIV.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Standard OFW Medical Exam Package</h3>
+    <p>A standard OFW medical exam at Nordic Medical includes: physical examination by a licensed physician, complete blood count (CBC), blood typing, urinalysis, fecalysis, chest X-ray (PA), hepatitis B surface antigen (HBsAg), VDRL (syphilis screening), HIV screening, and medical fitness certificate. Additional tests may be required depending on the country and job type.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Country-Specific Requirements</h3>
+    <p>Middle East (Saudi Arabia, UAE, Qatar, Kuwait): strict screening for tuberculosis, hepatitis B, HIV, and pregnancy (for female workers). Japan and South Korea: thorough physical fitness assessment. Seafarers (STCW): additional audiometry, vision testing, and cardiac evaluation. Always ask your agency or employer for the specific test list required for your destination.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">What to Bring</h3>
+    <p>Prepare the following: valid passport, 4 pieces of 2x2 ID photos with white background, job offer or agency referral letter, previous medical records (especially if you have known health conditions), and the processing fee. Fasting of 8–10 hours is required for blood chemistry tests.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Processing Time and Results</h3>
+    <p>At Nordic Medical Clinic, most OFW medical packages are completed within 3–4 hours. Results are released on the same day, with the official medical certificate ready for submission. Urgent processing is available for those with tight flight schedules — please inform our staff upon registration.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Walk-Ins Welcome</strong>
+      <p style="margin:0;font-size:14px">No appointment needed for OFW exams at Nordic Medical. Arrive early in the morning for faster processing and same-day release of results.</p>
+    </div>`
+  },
+  {
+    id:8, cat:"Women's Health", date:'December 18, 2024', read:'6 min read',
+    author:'Dr. Ana Reyes', init:'AR',
+    img:'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&q=80',
+    title:"Women's Health Guide: Essential Check-Ups Every Woman Needs",
+    excerpt:'From Pap smears to breast exams — a practical guide to the health screenings every Filipino woman should prioritize at every stage of life.',
+    body:`<p>Women\'s health requires specific attention at every life stage. From adolescence through menopause, regular screenings and check-ups can detect conditions early and keep you healthy for decades. Yet many Filipino women delay or skip these important appointments due to lack of information, cost concerns, or cultural hesitation. This guide is here to change that.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">In Your 20s: Establishing a Health Baseline</h3>
+    <p>In your twenties, focus on establishing baseline health data. Get your first Pap smear (cervical cancer screening) at age 21 or within 3 years of sexual activity, then every 3 years if results are normal. Have your blood pressure, blood sugar, and cholesterol checked annually. If sexually active, discuss STI screening with your doctor. This is also a good time to discuss family planning options.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">In Your 30s: Reproductive Health Focus</h3>
+    <p>Your thirties often coincide with pregnancy planning or active family life. Prenatal care is essential — first prenatal visit should occur within the first trimester, ideally before 10 weeks. Even if not pregnant, annual OB-GYN consultations, continued Pap smears, and breast self-exams monthly are important. Know your body and report any irregular bleeding or discharge to your physician promptly.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">In Your 40s and Beyond: Cancer Screening Priority</h3>
+    <p>The risk of breast cancer, cervical cancer, and endometrial cancer rises significantly after 40. Begin annual clinical breast exams and discuss mammography screening with your doctor. Continue Pap smears every 3–5 years (depending on previous results). Get your blood sugar, cholesterol, and bone density (DEXA scan) checked regularly. Monitor for symptoms of perimenopause and seek guidance on hormone changes.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Mental Health Is Women\'s Health</h3>
+    <p>Women are disproportionately affected by anxiety, depression, and postpartum mood disorders. These are medical conditions — not weaknesses. If you are experiencing persistent sadness, anxiety, fatigue, or mood changes, please speak with your doctor. Mental health screening is a routine part of women\'s health care at Nordic Medical.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Private & Confidential</strong>
+      <p style="margin:0;font-size:14px">All women\'s health consultations at Nordic Medical are conducted in a private, judgment-free environment. Your health is our priority and your privacy is always protected.</p>
+    </div>`
+  },
+  {
+    id:9, cat:'Pediatrics', date:'December 5, 2024', read:'5 min read',
+    author:'Dr. Ana Reyes', init:'AR',
+    img:'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&q=80',
+    title:"Child Vaccination Schedule in the Philippines: A Parent's Guide",
+    excerpt:'Confused about when your child needs which vaccine? Dr. Reyes breaks down the Philippine EPI schedule and what every parent needs to know.',
+    body:`<p>Vaccination is one of the most effective ways to protect your child from serious, potentially life-threatening diseases. The Philippine Expanded Program on Immunization (EPI) provides a schedule of vaccines recommended for all Filipino children. As a parent, understanding this schedule helps you ensure your child is protected at the right time.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">At Birth</h3>
+    <p>Immediately after birth, your baby should receive: BCG vaccine (protection against tuberculosis) and Hepatitis B vaccine (first dose). These are typically given in the hospital or birthing center. If your baby was born outside a facility, visit a clinic within the first week of life to receive these vaccines.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">6 Weeks to 6 Months</h3>
+    <p>Between 6 and 14 weeks: DTwP (Diphtheria, Tetanus, Pertussis), OPV (Oral Polio Vaccine), HiB (Haemophilus influenzae type b), and Hepatitis B doses 2 and 3. These are given in three doses at 6, 10, and 14 weeks. The Rotavirus vaccine (for diarrheal disease) is also recommended at 6 and 10 weeks. At 6 months, give the annual Influenza vaccine — repeat every year.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">9 Months to 1 Year</h3>
+    <p>At 9 months: MMR (Measles, Mumps, Rubella) first dose and JE (Japanese Encephalitis) vaccine. At 12 months: Varicella (chickenpox) vaccine, Hepatitis A first dose, and pneumococcal vaccine boosters. The 1-year mark is an important milestone — schedule a well-baby check-up with growth and development assessment.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Ages 4–6: Booster Doses</h3>
+    <p>At 4–6 years old, children receive booster doses of DTwP, OPV, and MMR. These boosters reinforce immunity built during infancy. If any vaccines were missed earlier, this is also a good time to catch up on the immunization schedule through a catch-up vaccination plan.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Keeping Track</h3>
+    <p>Always keep your child\'s immunization card updated and bring it to every clinic visit. Nordic Medical records all vaccinations administered and can help you identify any missed doses and create a catch-up schedule.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">From Dr. Reyes</strong>
+      <p style="margin:0;font-size:14px">Vaccines are safe, effective, and life-saving. The risks of vaccine-preventable diseases far outweigh the minimal risks of vaccination. When in doubt, always consult your pediatrician.</p>
+    </div>`
+  },
+  {
+    id:10, cat:'Nutrition', date:'November 20, 2024', read:'5 min read',
+    author:'Dr. Ricardo Santos', init:'RS',
+    img:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80',
+    title:'Eating Right as a Filipino: Nutrition Tips That Actually Work',
+    excerpt:'You don\'t need to give up rice or adobo. Here are practical, culturally-appropriate nutrition tips from our physicians that fit real Filipino life.',
+    body:`<p>Nutrition advice in the Philippines is often imported from Western countries and fails to account for the realities of Filipino food culture, budget constraints, and regional cuisine. This guide offers practical, evidence-based nutrition tips that work within the context of real Filipino daily life.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">The Rice Question</h3>
+    <p>Rice is a staple of the Filipino diet and abandoning it entirely is neither realistic nor necessary for most people. Instead: reduce your portion size gradually (from 2 cups to 1 cup per meal), try brown rice or red rice for added fiber and slower blood sugar release, or mix white rice with vegetables to add bulk without extra calories. The key is portion control, not elimination.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">The Problem with Salt</h3>
+    <p>Filipino cooking relies heavily on patis (fish sauce), toyo (soy sauce), bagoong, and instant seasonings — all of which are extremely high in sodium. High sodium intake is the primary driver of hypertension in Filipinos. Practical swaps: use less patis and replace with calamansi juice for flavor, choose low-sodium soy sauce, and cook from scratch more often to control salt content.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Affordable Superfoods Available Locally</h3>
+    <p>You don\'t need expensive imported superfoods. Affordable, nutrient-dense local foods include: camote (sweet potato) — high in fiber and Vitamin A; malunggay (moringa) — exceptionally rich in iron, calcium, and protein; bangus (milkfish) — high in omega-3 fatty acids; squash and ampalaya — excellent for blood sugar management; and mongo (mung beans) — a complete protein source.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Hydration and Sugary Drinks</h3>
+    <p>Many Filipinos drink significant amounts of sweetened beverages — softdrinks, juice drinks, 3-in-1 coffee, flavored milk teas. A single 500ml bottle of softdrink contains 50–60g of sugar — more than the daily recommended limit. Replace these with water, plain brewed coffee, unsweetened tea, or calamansi water. This single change can dramatically improve blood sugar, weight, and dental health.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Nutrition Consultation at Nordic Medical</strong>
+      <p style="margin:0;font-size:14px">Our physicians offer personalized dietary consultations for patients managing diabetes, hypertension, or weight concerns. Book an appointment to get a meal plan tailored to your health goals and Filipino lifestyle.</p>
+    </div>`
+  },
+  {
+    id:11, cat:'Vaccination', date:'November 8, 2024', read:'4 min read',
+    author:'Dr. Ana Reyes', init:'AR',
+    img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80',
+    title:'Adult Vaccines You Probably Need But Haven\'t Thought About',
+    excerpt:'Vaccines aren\'t just for children. Here are the key vaccines recommended for Filipino adults — and why getting them now could save your life.',
+    body:`<p>When most people think of vaccines, they think of childhood immunizations. But many vaccines require booster doses in adulthood, and several important vaccines are specifically designed for adults. Staying up to date on your vaccinations is one of the most cost-effective ways to protect your health.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Influenza Vaccine — Every Year</h3>
+    <p>The flu vaccine should be given annually to all adults, particularly those over 65, healthcare workers, pregnant women, and individuals with chronic conditions like diabetes, heart disease, or asthma. Influenza causes thousands of hospitalizations in the Philippines each year and is easily preventable. The best time to get vaccinated is before the rainy season (August–October).</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Hepatitis B — If Not Previously Vaccinated</h3>
+    <p>Hepatitis B is the leading cause of liver cancer in the Philippines. If you did not receive the complete 3-dose hepatitis B series as a child, you should get vaccinated now regardless of your age. A simple blood test (HBsAg, Anti-HBs) can determine if you\'ve been exposed or are immune before vaccination.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Pneumococcal Vaccine — For Adults 65+</h3>
+    <p>Pneumococcal disease causes severe pneumonia, meningitis, and bloodstream infections — particularly dangerous in older adults. The pneumococcal vaccine is recommended for all adults 65 and above, and younger adults with chronic lung disease, diabetes, or weakened immune systems. A single dose provides long-lasting protection.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">Tetanus-Diphtheria (Td) Booster — Every 10 Years</h3>
+    <p>Most adults received their tetanus shots as children, but immunity wanes over time. A booster dose of Td (or Tdap, which also covers pertussis) is recommended every 10 years. If you are pregnant, a Tdap booster is recommended during every pregnancy to protect the newborn. If you have a wound — especially from a rusty object — and haven\'t had a tetanus shot in 5 years, get boosted immediately.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">For OFWs and Travelers</h3>
+    <p>If you are traveling abroad or preparing for work overseas, additional vaccines may be required depending on your destination — including Typhoid, Hepatitis A, Japanese Encephalitis, Meningococcal vaccine, and Yellow Fever (for Africa and South America). Consult with our physician at least 4–6 weeks before travel.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">Available at Nordic Medical</strong>
+      <p style="margin:0;font-size:14px">We stock flu, Hepatitis A &amp; B, pneumococcal, Td/Tdap, typhoid, and travel vaccines. Walk-in vaccination is available — no appointment needed for most vaccines.</p>
+    </div>`
+  },
+  {
+    id:12, cat:'Preventive Health', date:'October 25, 2024', read:'5 min read',
+    author:'Dr. Ricardo Santos', init:'RS',
+    img:'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80',
+    title:'10 Warning Signs You Should Never Ignore',
+    excerpt:'Some symptoms seem minor but can signal serious underlying conditions. Here are 10 signs that mean it\'s time to stop waiting and see a doctor today.',
+    body:`<p>One of the most common things we hear from patients at Nordic Medical Clinic is: "I wasn\'t sure if it was serious enough to come in." Too often, symptoms that could have been caught early are ignored until they become emergencies. Here are 10 warning signs that should never be dismissed.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">1. Chest Pain or Pressure</h3>
+    <p>Any chest pain — especially if accompanied by shortness of breath, sweating, or pain radiating to the left arm or jaw — could indicate a heart attack. Do not wait. Seek emergency care immediately. Even if it turns out to be a muscle strain or acid reflux, chest pain must always be evaluated.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">2. Sudden Severe Headache</h3>
+    <p>A headache that comes on suddenly and is described as "the worst headache of my life" can be a sign of a subarachnoid hemorrhage (bleeding in the brain). This is a medical emergency. Do not take a painkiller and sleep it off — go to the emergency room.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">3. Unexplained Weight Loss</h3>
+    <p>Losing more than 5% of your body weight in 6–12 months without trying can be a sign of cancer, diabetes, hyperthyroidism, or other serious conditions. If you are losing weight without dieting or exercising more, see a physician for evaluation.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">4. Blood in Urine or Stool</h3>
+    <p>Blood in your urine (pink, red, or cola-colored) can indicate kidney stones, urinary tract infection, or kidney or bladder cancer. Blood in the stool — whether bright red or tarry black — can signal hemorrhoids, ulcers, or colorectal cancer. Always report this to your doctor immediately.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">5. Persistent Fever</h3>
+    <p>A fever lasting more than 3 days in adults, or any fever above 39°C, warrants medical evaluation. Persistent fever can indicate a serious bacterial infection, dengue, typhoid, or other conditions requiring laboratory workup and treatment.</p>
+    <h3 style="font-size:20px;margin:28px 0 12px;color:var(--T)">6–10: More Signs to Watch</h3>
+    <p><strong>Shortness of breath at rest</strong> — may indicate heart failure, anemia, or lung disease. <strong>Vision changes or sudden blurred vision</strong> — can signal hypertensive crisis, diabetes, or stroke. <strong>Swollen lymph nodes lasting more than 2 weeks</strong> — may indicate infection or lymphoma. <strong>Numbness or weakness on one side of the body</strong> — classic stroke warning sign; call emergency services immediately. <strong>A sore or wound that won\'t heal</strong> — can indicate diabetes, infection, or cancer.</p>
+    <div style="background:rgba(74,144,164,.07);border-left:4px solid var(--P);border-radius:0 10px 10px 0;padding:18px 20px;margin:28px 0">
+      <strong style="color:var(--P);display:block;margin-bottom:6px">When in Doubt, Come In</strong>
+      <p style="margin:0;font-size:14px">At Nordic Medical, we always say: it is better to come in and find out it\'s nothing than to wait and find out it was something serious. Walk-ins are always welcome. Your health is never a bother.</p>
+    </div>`
+  }
+];
+
+// ─── BLOG RENDERING ───
+let activeFilter = 'all';
+
+function renderBlog(filter){
+  const list = document.getElementById('blogMainList');
+  if(!list) return;
+  const filtered = filter === 'all' ? articles : articles.filter(a => a.cat === filter);
+  list.innerHTML = filtered.map(a => `
+    <article class="blog-card fade-up" onclick="openArticle(${a.id})" style="cursor:pointer">
+      <div class="blog-card-img"><img src="${a.img}" alt="${a.title}" loading="lazy"/></div>
+      <div class="blog-card-body">
+        <div class="blog-cat">${a.cat}</div>
+        <h2>${a.title}</h2>
+        <p>${a.excerpt}</p>
+        <div class="blog-meta">
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${a.date}</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> ${a.author}</span>
+          <span>${a.read}</span>
+        </div>
+        <span style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:13px;font-weight:600;color:var(--P)">Read full article →</span>
+      </div>
+    </article>
+  `).join('');
+
+  // Sidebar recent (always top 3)
+  const sidebar = document.getElementById('sidebarRecent');
+  if(sidebar){
+    sidebar.innerHTML = articles.slice(0,3).map(a=>`
+      <div class="recent-post" onclick="openArticle(${a.id})" style="cursor:pointer">
+        <div class="recent-post-img"><img src="${a.img}" alt="" loading="lazy"/></div>
+        <div><div class="recent-post-title">${a.title}</div><div class="recent-post-date">${a.date}</div></div>
+      </div>
+    `).join('');
+  }
+  setTimeout(initScrollAnim, 80);
+}
+
+function filterBlog(cat){
+  activeFilter = cat;
+  document.querySelectorAll('.topic-tag').forEach(t => {
+    t.style.background = (t.textContent.trim() === cat || (cat==='all' && t.textContent.trim()==='All')) ? 'rgba(74,144,164,.15)' : '';
+    t.style.color = (t.textContent.trim() === cat || (cat==='all' && t.textContent.trim()==='All')) ? 'var(--P)' : '';
+  });
+  renderBlog(cat);
+}
+
+function openArticle(id){
+  const a = articles.find(x => x.id === id);
+  if(!a) return;
+  document.getElementById('blogList').style.display = 'none';
+  document.getElementById('articleReader').style.display = 'block';
+  document.getElementById('articleImgEl').src = a.img;
+  document.getElementById('articleCat').textContent = a.cat;
+  document.getElementById('articleDate').textContent = a.date;
+  document.getElementById('articleRead').textContent = a.read;
+  document.getElementById('articleTitle').textContent = a.title;
+  document.getElementById('articleAuthor').textContent = a.author;
+  document.getElementById('articleAuthorInit').textContent = a.init;
+  document.getElementById('articleBody').innerHTML = a.body;
+  // Sidebar article list
+  const sl = document.getElementById('readerSidebarList');
+  if(sl){
+    sl.innerHTML = articles.map(x=>`
+      <div onclick="openArticle(${x.id})" style="padding:10px;border-radius:8px;cursor:pointer;background:${x.id===id?'rgba(74,144,164,.08)':''};border:1px solid ${x.id===id?'rgba(74,144,164,.2)':'transparent'};transition:var(--TR)">
+        <div style="font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;color:var(--P);margin-bottom:3px">${x.cat}</div>
+        <div style="font-size:13px;font-weight:600;color:var(--T);line-height:1.4">${x.title}</div>
+      </div>
+    `).join('');
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function closeArticle(){
+  document.getElementById('articleReader').style.display = 'none';
+  document.getElementById('blogList').style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Init blog when page loads
+setTimeout(()=>{ if(document.getElementById('blogMainList')) renderBlog('all'); }, 200);
+window.addEventListener('scroll',()=>{
+  const bg=document.querySelector('.hero-bg');
+  if(bg){bg.style.transform=`translateY(${window.scrollY*.25}px)`}
+});
+</script>
+</body>
+</html>
